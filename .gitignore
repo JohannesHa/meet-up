@@ -1,0 +1,5 @@
+config.js
+
+/node_modules
+/build
+/build_webpack
