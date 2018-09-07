@@ -15,9 +15,6 @@ class App extends Component {
   constructor(props) {
     super(props)
 
-    var pinata_api_key = config.MY_KEY;
-    var pinata_secret_api_key = config.SECRET_KEY;
-
     this.state = {
       testingAxios: []
     }
@@ -25,6 +22,9 @@ class App extends Component {
 
 
   componentDidMount() {
+    var pinata_api_key = config.MY_KEY;
+    var pinata_secret_api_key = config.SECRET_KEY;
+
     axios
       .get("https://api.pinata.cloud/data/testAuthentication", {
         headers: {
