@@ -8,7 +8,7 @@ import Button from '../../components/Button.js';
 import Title from '../../components/Title.js';
 import Subtitle from '../../components/Subtitle.js';
 
-class GroupController extends Component {
+class Group extends Component {
     constructor(props, context) {
         super(props, context);
 
@@ -106,4 +106,4 @@ const styles = {
 
 
 
-export default GroupController
+export default Group

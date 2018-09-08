@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import logo from '../../logo.png'
-import GroupController from '../GroupController/GroupController';
+import GroupContainer from '../group/GroupContainer';
 
 import Nav from '../../components/Nav.js'
 import Header from '../../components/Header.js'
@@ -14,7 +14,7 @@ class Home extends Component {
           <div>
             <Header>Discover</Header>
             <Subheader>Find groups that interest you</Subheader>
-            <GroupController />
+            <GroupContainer />
           </div>
         </main>
         <Nav current={0}/>
