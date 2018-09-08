@@ -1,7 +1,7 @@
 /**
  * Created by will on 08/09/18.
  */
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import LocationSearch from '../LocationSearch/LocationSearch';
 import CategorySearch from '../CategorySearch/CategorySearch';
 
@@ -91,10 +91,10 @@ class DiscoverSearchContainer extends Component {
         <div>
           {!this.state.onCategoryPage ?
             <LocationSearch onSelectCountry={this.handleSelectCountry}
-                            onSelectRegion={this.handleSelectRegion}
-                            country={this.state.country}
-                            region={this.state.region}/> :
-            <CategorySearch onSelectCategory={this.handleSelectCategory}/>
+              onSelectRegion={this.handleSelectRegion}
+              country={this.state.country}
+              region={this.state.region} /> :
+            <CategorySearch onSelectCategory={this.handleSelectCategory} />
           }
         </div>
 

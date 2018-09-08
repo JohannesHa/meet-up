@@ -115,3 +115,16 @@ ul li:not(:last-child) {
   display:flex;
   flex-direction:row;
 }
+
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+
+.dropdown-country {
+  background-color: #ffffff;
+  margin-bottom: 20;
+  padding-bottom: 20;
+}
