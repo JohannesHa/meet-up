@@ -8,12 +8,22 @@ class Home extends Component {
     return (
       <main className="container">
         <div>
-          <h1>Meet-Up</h1>
+          <h1 style={styles.h1Style}>Pick a group!</h1>
           <GroupController />
         </div>
       </main>
     )
   }
 }
+
+
+const styles = {
+  h1Style: {
+    color: '#ffffff',
+    textAlign: 'center',
+    marginBottom: 80
+  }
+};
+
 
 export default Home
