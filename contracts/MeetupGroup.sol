@@ -1,9 +1,10 @@
 pragma solidity 0.4.24;
 
 import "./zeppelin/ownership/Ownable.sol";
+import "./zeppelin/lifecycle/Destructible.sol";
 import "./blockparty/Conference.sol";
 
-contract MeetupGroup is Ownable {
+contract MeetupGroup is Ownable, Destructible {
     string public name;
     string public ens;
     bytes8 public geohash;
@@ -24,7 +25,6 @@ contract MeetupGroup is Ownable {
      * @dev Constructor.
      * @param _owner Address of the user that creates the group from factory contract
      * @param _name The name of the meetup group
-     * @param _ens ENS string of meetup
      * @param _geohash Geohash of the meetup group
      * @param _category Category the meetup group belongs to
      * @param _description Desciption of the meetup group
@@ -34,7 +34,6 @@ contract MeetupGroup is Ownable {
     constructor (
         address _owner,
         string _name,
-        string _ens,
         bytes8 _geohash,
         string _category,
         string _description,
@@ -47,12 +46,6 @@ contract MeetupGroup is Ownable {
             name = _name;
         } else {
             name = "Test";
-        }
-
-        if (bytes(_ens).length != 0){
-            ens = _ens;
-        } else {
-            ens = "test.example.eth";
         }
 
         if (_geohash.length != 0){
@@ -78,6 +71,18 @@ contract MeetupGroup is Ownable {
         } else {
             logo = "0x0";
         } 
+    }
+
+    /**
+     * @dev Adds ENS to the contract
+     * @param _ens ENS string of meetup
+     */
+    function addENS(string _ens) public {
+        if (bytes(_ens).length != 0){
+            ens = _ens;
+        } else {
+            ens = "test.example.eth";
+        }
     }
 
     /**
