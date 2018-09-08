@@ -102,14 +102,34 @@ class DiscoverSearchContainer extends Component {
 
 
         {!this.state.onCategoryPage ?
-          <button disabled={false} onClick={this.selectCategoryPage}>Next</button> :
-          <button onClick={this.searchGroups}>Search</button>
+          <div class="center">
+            <button style={styles.buttonStyle} disabled={false} onClick={this.selectCategoryPage}>Next</button>
+          </div> :
+          <div class="center">
+            <button style={styles.buttonStyle} onClick={this.searchGroups}>Search</button>
+          </div>
         }
 
-        <Nav current={1}/>
+        <Nav current={1} />
       </div>
     )
   }
 }
+
+const styles = {
+  buttonStyle: {
+    marginTop: 30,
+    borderRadius: 12,
+    borderWidth: 0,
+    backgroundColor: '#7B40FF',
+    width: '100%',
+    height: 40,
+    color: '#ffffff',
+    float: 'right',
+    justifyContent: 'center',
+    alignItems: 'center'
+  }
+};
+
 
 export default DiscoverSearchContainer;
