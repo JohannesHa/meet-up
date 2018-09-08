@@ -1,7 +1,7 @@
 /**
  * Created by will on 08/09/18.
  */
-export function handleCreateGroup(event: GroupCreated): void {
+export function handleCreateGroup(event: CreateGroup): void {
     let groupId = event.params.id.toHex();
     let userId = event.params.userId.toHex();
 
@@ -17,7 +17,6 @@ export function handleCreateGroup(event: GroupCreated): void {
     group.setString('country', event.params.country);
     group.setString('region', event.params.region);
     // group.setBigInt('memberCount', event.params.memberCount);
-
 
 
 

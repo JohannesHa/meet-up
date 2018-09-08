@@ -2,8 +2,11 @@
  * Created by will on 08/09/18.
  */
 export function hanldeAttendEvent(event: AttendEvent): void {
-    let eventId = event.params.eventId.toHex();
+    let eventId = event.params.id.toHex();
     let userId = event.params.userId.toHex();
+
+    let user = new Entity();
+    user.setString('id', userId);
 
     let eventEntity = new Entity();
     eventEntity.setString('id', eventId);
@@ -16,6 +19,7 @@ export function hanldeAttendEvent(event: AttendEvent): void {
     eventEntity.setArray('attendees', [Value.fromString(userId)]);
 
 
+    store.set('User', userId, user);
     store.set('Event', eventId, event);
 }
 
