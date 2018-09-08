@@ -9,6 +9,7 @@ class ProfileContainer extends Component {
             <main className="container">
                 <div>
                     <h1 style={styles.h1Style}>Your Profile 🤓</h1>
+                    <h6 style={styles.h1Style}>Show this code to the organiser of your next Meetup</h6>
                     <div class="qr-code-card">
                         <div class="center">
                             <QRCode class="qrcode" value="0x0A8dF54352eB4Eb6b18d0057B15009732EfB351c" />
@@ -25,7 +26,13 @@ const styles = {
     h1Style: {
         color: '#ffffff',
         textAlign: 'center',
-        marginBottom: 80,
+        marginBottom: 30,
+        fontWeight: 200,
+    },
+    h6Style: {
+        color: '#d3d3d3',
+        textAlign: 'center',
+        marginBottom: 70,
         fontWeight: 200,
     },
     qrCodeBorder: {
