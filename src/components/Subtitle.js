@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { colors, fontSizes, width } from '../styles.js'
 
-const StyledSubtitle = styled.h2`
+const StyledSubtitle = styled.h3`
   text-decoration: none;
   color: ${colors.subtitle};
   font-size: ${fontSizes.subtitle};

@@ -10,11 +10,17 @@ export const colors = {
   purplest: '#6331D4',
   metamask: '#F6851B',
   status: '#4957B8',
+  header: '#FFFFFF',
+  subheader: '#A1A4D3',
   title: '#FFFFFF',
   subtitle: '#CCCCCC',
 };
 
 export const fontSizes = {
+  header: '40px',
+  headerMobile: '30px',
+  subheader: '30px',
+  subheaderMobile: '20px',
   title: '30px',
   titleMobile: '20px',
   subtitle: '20px',
