@@ -1,10 +1,11 @@
 import React, { Component } from 'react'
-import { Route } from 'react-router'
+import { Route, Switch } from 'react-router'
 import HomeContainer from './layouts/home/HomeContainer'
 import axios from 'axios';
 import config from '../config';
 
-
+import Nav from './components/Nav.js'
+import DiscoverSearchContainer from './components/DiscoverSearch/DiscoverSearchContainer'
 
 // Styles
 import './css/roboto.css'
@@ -47,11 +48,15 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Route exact path="/" component={HomeContainer} />
+        <Switch>
+          <Route exact path="/" component={HomeContainer} />
+          <Route exact path="/search" component={DiscoverSearchContainer} />
+        </Switch>
         <ul>
           {console.log("tested Axios:" + this.state.testingAxios)}
           {this.state.testingAxios.map(testingAxios => <li>{testingAxios.message}</li>)}
         </ul>
+        <Nav/>
       </div>
     );
   }
