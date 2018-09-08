@@ -27,7 +27,7 @@ contract Conference is Destructible, GroupAdmin {
         bool paid;
     }
 
-    event RegisterEvent(address addr);
+    event RegisterEvent(address addr, uint registered, uint limitOfParticipants, bool isFull);
     event AttendEvent(address addr);
     event PaybackEvent(uint256 _payout);
     event WithdrawEvent(address addr, uint256 _payout);
@@ -118,7 +118,8 @@ contract Conference is Destructible, GroupAdmin {
      */
     function register() external payable onlyActive{
         registerInternal();
-        emit RegisterEvent(msg.sender);
+        bool full = isFull();
+        emit RegisterEvent(msg.sender, registered, limitOfParticipants, full);
     }
 
     /**
@@ -256,6 +257,14 @@ contract Conference is Destructible, GroupAdmin {
             emit AttendEvent(_addr);
             participants[_addr].attended = true;
             attended++;
+        }
+    }
+
+    function isFull() private view returns(bool) {
+        if (registered < limitOfParticipants) {
+            return false;
+        } else {
+            return true;
         }
     }
 }
