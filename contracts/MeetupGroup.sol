@@ -5,18 +5,29 @@ import "./blockparty/Conference.sol";
 
 contract MeetupGroup is Destructible {
     string public name;
-    bytes8 public geohash;
+    string public country;
+    string public region;
     string public category;
     string public description;
     bytes public logo;
     uint public memberCount;
 
     address[] public events;
-    mapping (address => bool) public participants;
+    mapping (address => bool) public members;
 
-    event CreateEvent(address id, address groupId, string name, string description, uint date, address userId);
+    event CreateEvent(
+        address id, 
+        address groupId, 
+        address userId, 
+        string name, 
+        string description, 
+        uint date, 
+        bytes8 geohash, 
+        uint limitOfParticipants,
+        uint deposit
+    );
     event JoinGroup(address groupId, address userId, uint memberCount);
-    event LeaveGroup(address groupId, address userId, uint memberCount);
+    // event LeaveGroup(address groupId, address userId, uint memberCount);
 
 
     /* Public functions */
@@ -24,7 +35,8 @@ contract MeetupGroup is Destructible {
      * @dev Constructor.
      * @param _owner Address of the user that creates the group from factory contract
      * @param _name The name of the meetup group
-     * @param _geohash Geohash of the meetup group
+     * @param _country Country of meetup group
+     * @param _region Region of meetup group
      * @param _category Category the meetup group belongs to
      * @param _description Desciption of the meetup group
      * @param _logo IPFS link
@@ -33,7 +45,8 @@ contract MeetupGroup is Destructible {
     constructor (
         address _owner,
         string _name,
-        bytes8 _geohash,
+        string _country,
+        string _region,
         string _category,
         string _description,
         bytes _logo
@@ -47,10 +60,16 @@ contract MeetupGroup is Destructible {
             name = "Test";
         }
 
-        if (_geohash.length != 0){
-            geohash = _geohash;
+        if (bytes(_country).length != 0){
+            country = _country;
         } else {
-            geohash = 0x0;
+            country = "TestCountry";
+        }
+
+        if (bytes(_region).length != 0){
+            region = _region;
+        } else {
+            region = "TestRegion";
         }
 
         if (bytes(_category).length != 0){
@@ -69,7 +88,10 @@ contract MeetupGroup is Destructible {
             logo = _logo;
         } else {
             logo = "0x0";
-        } 
+        }
+
+        members[msg.sender] = true;
+        memberCount++;
     }
 
     /**
@@ -102,24 +124,24 @@ contract MeetupGroup is Destructible {
             _geohash
         );
         events.push(conference);
-        emit CreateEvent(conference, this, _name, _description, _date, msg.sender);
+        emit CreateEvent(conference, this, msg.sender, _name, _description, _date, _geohash, _limitOfParticipants, _deposit);
     }
 
     /**
      * @dev Adds a user to the meetup group
      */
     function joinGroup () public {
-        participants[msg.sender] = true;
+        members[msg.sender] = true;
         memberCount++;
         emit JoinGroup(this, msg.sender, memberCount);
     }
 
-    /**
-     * @dev Deletes a user from the meetup group
-     */
-    function leaveGroup () public {
-        participants[msg.sender] = false;
-        memberCount--;
-        emit LeaveGroup(this, msg.sender, memberCount);
-    }
+    // /**
+    //  * @dev Deletes a user from the meetup group
+    //  */
+    // function leaveGroup () public {
+    //     participants[msg.sender] = false;
+    //     memberCount--;
+    //     emit LeaveGroup(this, msg.sender, memberCount);
+    // }
 }

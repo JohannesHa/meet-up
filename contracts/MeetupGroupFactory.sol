@@ -9,7 +9,7 @@ contract MeetupGroupFactory is Ownable {
     EnsSubdomainFactory public subdomainFactory;
     address[] public groups;
 
-    event CreateGroup(address id, string name, string description, string ens, address userId);
+    event CreateGroup(address id, address userId, string name, string description, string ens, string country, string region, uint memberCount);
 
     /* Public functions */
     /**
@@ -22,7 +22,8 @@ contract MeetupGroupFactory is Ownable {
      * @dev Create Group.
      * @param _name The name of the meetup group
      * @param _ens Subdomain ENS
-     * @param _geohash Geohash of the meetup group
+     * @param _country Country of meetup group
+     * @param _region Region of meetup group
      * @param _category Category the meetup group belongs to
      * @param _description Desciption of the meetup group
      * @param _logo IPFS link
@@ -30,7 +31,8 @@ contract MeetupGroupFactory is Ownable {
     function createGroup(
         string _name,
         string _ens,
-        bytes8 _geohash,
+        string _country,
+        string _region,
         string _category,
         string _description,
         bytes _logo
@@ -38,7 +40,8 @@ contract MeetupGroupFactory is Ownable {
         address group = new MeetupGroup(
         msg.sender,
         _name,
-        _geohash,
+        _country,
+        _region,
         _category,
         _description,
         _logo
@@ -47,6 +50,6 @@ contract MeetupGroupFactory is Ownable {
 
         subdomainFactory.newSubdomain(_name, "meet-up", msg.sender, group);
 
-        emit CreateGroup(group, _name, _description, _ens, msg.sender);
+        emit CreateGroup(group, msg.sender, _name, _description, _ens, _country, _region, 1);
     }
 }
