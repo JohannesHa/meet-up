@@ -3,47 +3,46 @@ scalar Date
 type Group @entity {
     name: String!
     ens: String!
-    events: [Event] @derivedFrom(field: "group")
+    events: [Event!] @derivedFrom(field: "group")
     admin: User!
     description: String
     logo: String
-    members: [User]
-    memberCount: Int!
-    location: Location!
+    members: [User!]
+    memberCount: BigInt!
+    country: String!
+    region: String!
+    category: EventCategory
 }
 
 type Event @entity {
-    address: String!
+    address: Bytes!
     name: String!
-    maxAttendees: Int!
+    maxAttendees: BigInt!
     description: String!
-    depositAmount: Int!
-    attendees: [User]
-    coolingPeriod: Int!
+    depositAmount: BigInt!
+    attendees: [User!]
+    attendeeCount: BigInt!
+    isFull: Boolean!
+    coolingPeriod: BigInt!
     eventDate: String!
     creator: User!
     group: Group!
 }
 
-type Location @entity {
-    country: String!
-    region: String!
-}
-
-
 
 type User @entity {
-    address: String!
-    adminGroups: [Group] @derivedFrom(field: "admin")
-    memberGroups: [Group] @derivedFrom(field: "members")
-    upcomingEvents: [Event] @derivedFrom(field: "attendees")
+    address: Bytes!
+    adminGroups: [Group!] @derivedFrom(field: "admin")
+    memberGroups: [Group!] @derivedFrom(field: "members")
+    upcomingEvents: [Event!] @derivedFrom(field: "attendees")
 }
 
-type Query {
-    getAdminGroupsForUser(address: String!): [Group]
-    getMemberGroupsForUser(address: String!): [Group]
-    getEventsForUser(address: String!): [Event]
-    getGroupsForSearch(country: String!, region: String!, category: String!): [Group]
-    getGroupFromEns(ensName: String!): Group
-    getEventfromAddress(address: String!): Event
+enum EventCategory {
+    technology
+    science
+    art
+    history
+    games
+    fun
+    food
 }

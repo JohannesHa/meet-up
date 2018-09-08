@@ -1,0 +1,48 @@
+specVersion: 0.0.1
+schema:
+  file: ./schema.graphql
+dataSources:
+- kind: ethereum/contract
+  name: MeetupGroupFactory
+  source:
+    address: '8dbc6071711d4c1bbc46be51411669e0684fc490'
+    abi: MeetupGroupFactory
+  mapping:
+    kind: ethereum/events
+    apiVersion: 0.0.1
+    language: wasm/assemblyscript
+    entities:
+    - Group
+    - User
+    abis:
+    - name: MeetupGroupFactory
+      file: ./build/contracts/MeetupGroupFactory.json
+#    - name: MeetupGroup
+#      file: ./build/contracts/MeetupGroup.json
+    eventHandlers:
+    - event: CreateGroup(address,address,string,string,string,string,string,string)
+      handler: handleCreateGroup
+    file: ./mappings/group-factory.ts
+- kind: ethereum/contract
+  name: MeetupGroup
+  source:
+    address: 'f87e31492faf9a91b02ee0deaad50d51d56d5d4d'
+    abi: MeetupGroup
+  mapping:
+    kind: ethereum/events
+    apiVersion: 0.0.1
+    language: wasm/assemblyscript
+    entities:
+    - Group
+    - User
+    - Event
+    abis:
+    - name: MeetupGroup
+      file: ./build/contracts/MeetupGroup.json
+    eventHandlers:
+    - event: JoinGroup(address, address, uint)
+      handler: handleJoinGroup
+    - event: CreateEvent(address, address, address, string, string, uint, byte, uint, uint)
+      handler: handleCreateEvent
+    file: ./mappings/group.ts
+

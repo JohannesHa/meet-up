@@ -4,7 +4,7 @@ import "./GroupAdmin.sol";
 import "../zeppelin/lifecycle/Destructible.sol";
 
 contract Conference is Destructible, GroupAdmin {    
-    string public name;
+    // string public name;
     uint256 public deposit;
     uint public limitOfParticipants;
     uint public registered;
@@ -14,9 +14,9 @@ contract Conference is Destructible, GroupAdmin {
     uint public endedAt;
     uint public coolingPeriod;
     uint256 public payoutAmount;
-    string public description;
-    uint public date;
-    bytes8 public geohash;
+    // string public description;
+    // uint public date;
+    // bytes8 public geohash;
 
     mapping (address => Participant) public participants;
     mapping (uint => address) public participantsIndex;
@@ -33,6 +33,7 @@ contract Conference is Destructible, GroupAdmin {
     event WithdrawEvent(address addr, uint256 _payout);
     event CancelEvent();
     event ClearEvent(address addr, uint256 leftOver);
+    event ChangeNameEvent(string name);
 
     /* Modifiers */
     modifier onlyActive {
@@ -54,32 +55,28 @@ contract Conference is Destructible, GroupAdmin {
     /**
      * @dev Construcotr.
      * @param _owner Address of the owner of the event, group admin
-     * @param _name The name of the event
      * @param _deposit The amount each participant deposits. The default is set to 0.02 Ether. The amount cannot be changed once deployed.
      * @param _limitOfParticipants The number of participant. The default is set to 20. The number can be changed by the owner of the event.
      * @param _coolingPeriod The period participants should withdraw their deposit after the event ends. After the cooling period, the event owner can claim the remining deposits.
-     * @param _description Desciption of the event
-     * @param _date Timestamp of the event
-     * @param _geohash Geohash of the event
      */
     constructor (
         address _owner,
-        string _name,
+        // string _name,
         uint256 _deposit,
         uint _limitOfParticipants,
-        uint _coolingPeriod,
-        string _description,
-        uint _date,
-        bytes8 _geohash
+        uint _coolingPeriod
+        // string _description,
+        // uint _date,
+        // bytes8 _geohash
     ) public {
         require(_owner != 0x0, "Owner needs to be a valid address");
         owner = _owner;
 
-        if (bytes(_name).length != 0){
-            name = _name;
-        } else {
-            name = "Test";
-        }
+        // if (bytes(_name).length != 0){
+        //     name = _name;
+        // } else {
+        //     name = "Test";
+        // }
 
         if(_deposit != 0){
             deposit = _deposit;
@@ -99,23 +96,23 @@ contract Conference is Destructible, GroupAdmin {
             coolingPeriod = 1 weeks;
         }
 
-        if (bytes(_description).length != 0) {
-            description = _description;
-        } else {
-            description = "Test";
-        }
+        // if (bytes(_description).length != 0) {
+        //     description = _description;
+        // } else {
+        //     description = "Test";
+        // }
 
-        if (_date != 0) {
-            date = _date;
-        } else {
-            date = block.timestamp;
-        }
+        // if (_date != 0) {
+        //     date = _date;
+        // } else {
+        //     date = block.timestamp;
+        // }
 
-        if (_geohash.length != 0) {
-            geohash = _geohash;
-        } else {
-            geohash = 0x0;
-        }
+        // if (_geohash.length != 0) {
+        //     geohash = _geohash;
+        // } else {
+        //     geohash = 0x0;
+        // }
     }
 
     /**
@@ -246,7 +243,9 @@ contract Conference is Destructible, GroupAdmin {
      * @param _name the name of the event.
      */
     function changeName(string _name) external onlyOwner noOneRegistered{
-        name = _name;
+        // name = _name;
+        require(bytes(_name).length > 0, "New name needs to exist");
+        emit ChangeNameEvent(_name);
     }
 
     /**
