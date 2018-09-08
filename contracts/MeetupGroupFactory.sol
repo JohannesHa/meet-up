@@ -2,8 +2,9 @@ pragma solidity 0.4.24;
 
 import "./zeppelin/ownership/Ownable.sol";
 import "./MeetupGroup.sol";
+import "./radek1st/EnsSubdomainFactory.sol";
 
-contract MeetupGroupFactory is Ownable {
+contract MeetupGroupFactory is Ownable, EnsSubdomainFactory {
 
     address[] public groups;
 
@@ -13,6 +14,7 @@ contract MeetupGroupFactory is Ownable {
     /**
      * @dev Create Group.
      * @param _name The name of the meetup group
+     * @param _ens Subdomain ENS
      * @param _geohash Geohash of the meetup group
      * @param _category Category the meetup group belongs to
      * @param _description Desciption of the meetup group
@@ -20,6 +22,7 @@ contract MeetupGroupFactory is Ownable {
      */
     function createGroup(
         string _name,
+        string _ens,
         bytes8 _geohash,
         string _category,
         string _description,
@@ -34,11 +37,8 @@ contract MeetupGroupFactory is Ownable {
         _logo
         );
 
-        // create ens here
+        newSubdomain(_name, "meet-up", msg.sender, group);
 
-        MeetupGroup Group = MeetupGroup(group);
-        Group.addENS(ens);
-
-        emit CreateGroup(group, _name, _description, ens, msg.sender);
+        emit CreateGroup(group, _name, _description, _ens, msg.sender);
     }
 }
