@@ -5,7 +5,7 @@ schema:
   - kind: ethereum/contract
     name: MeetupGroupFactory
     source:
-      address: "0x20479bf8035c5d7e64b5ae469905ea2fcfe345ba"
+      address: "0x8dbc6071711d4c1bbc46be51411669e0684fc490"
       abi: MeetupGroupFactory
     mapping:
       kind: ethereum/events
@@ -18,7 +18,7 @@ schema:
       - name: MeetupGroupFactory
         file: ./build/contracts/MeetupGroupFactory.json
       eventHandlers:
-      - event: CreateGroup(address,address,uint)
+      - event: CreateGroup(address,address,string,string,string,string,string,string)
         handler: handleCreateGroup
 #      - event: DeleteGroup(address)
 #        handler: handleDeleteGroup

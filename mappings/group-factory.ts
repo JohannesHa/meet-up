@@ -13,10 +13,10 @@ export function handleCreateGroup(event: GroupCreated): void {
     group.setString('description', event.params.description);
     group.setString('ens', event.params.ens);
     group.setString('category', event.params.category);
-    group.setString('logo', event.params.logo);
+    // group.setBytes('logo', event.params.logo);
     group.setString('country', event.params.country);
     group.setString('region', event.params.region);
-    group.setBigInt('memberCount', event.params.memberCount);
+    // group.setBigInt('memberCount', event.params.memberCount);
 
 
 
