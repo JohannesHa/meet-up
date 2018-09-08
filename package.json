@@ -2,6 +2,7 @@
   "name": "drizzle-box",
   "version": "1.0.0",
   "devDependencies": {
+    "@graphprotocol/graph-cli": "^0.2.4",
     "ganache-cli": "^6.1.6",
     "openzeppelin-solidity": "^1.10.0",
     "truffle": "^4.1.13",
@@ -68,7 +69,10 @@
     "build": "truffle compile && node scripts/build.js",
     "test": "node scripts/test.js --env=jsdom",
     "chain": "ganache-cli",
-    "prepare": "npm run build"
+    "prepare": "npm run build",
+    "codegen": "graph generate-types eth-meetup.subgraph.yaml",
+    "build": "graph build subgraph.yaml",
+    "build-ipfs": "graph build --ipfs /ip4/127.0.0.1/tcp/5001 eth-meetup.subgraph.yaml"
   },
   "jest": {
     "collectCoverageFrom": [

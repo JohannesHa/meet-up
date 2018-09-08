@@ -1,0 +1,49 @@
+scalar Date
+
+type Group @entity {
+    name: String!
+    ens: String!
+    events: [Event] @derivedFrom(field: "group")
+    admin: User!
+    description: String
+    logo: String
+    members: [User]
+    memberCount: Int!
+    location: Location!
+}
+
+type Event @entity {
+    address: String!
+    name: String!
+    maxAttendees: Int!
+    description: String!
+    depositAmount: Int!
+    attendees: [User]
+    coolingPeriod: Int!
+    eventDate: String!
+    creator: User!
+    group: Group!
+}
+
+type Location @entity {
+    country: String!
+    region: String!
+}
+
+
+
+type User @entity {
+    address: String!
+    adminGroups: [Group] @derivedFrom(field: "admin")
+    memberGroups: [Group] @derivedFrom(field: "members")
+    upcomingEvents: [Event] @derivedFrom(field: "attendees")
+}
+
+type Query {
+    getAdminGroupsForUser(address: String!): [Group]
+    getMemberGroupsForUser(address: String!): [Group]
+    getEventsForUser(address: String!): [Event]
+    getGroupsForSearch(country: String!, region: String!, category: String!): [Group]
+    getGroupFromEns(ensName: String!): Group
+    getEventfromAddress(address: String!): Event
+}
