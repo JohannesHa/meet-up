@@ -10,7 +10,7 @@ body,
   text-align: center;
 }
 
-h1, h2, h3 {
+h1, h2, h3, button {
   font-family: 'Roboto', 'Arial Narrow', sans-serif;
   font-weight: 300;
 }
@@ -112,6 +112,6 @@ ul li:not(:last-child) {
 }
 
 .descriptionDiv {
-  display:flex; 
+  display:flex;
   flex-direction:row;
 }
