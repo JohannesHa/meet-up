@@ -5,14 +5,15 @@ import axios from 'axios';
 import config from '../config';
 import DiscoverSearchContainer from './components/DiscoverSearch/DiscoverSearchContainer';
 
+
 // Styles
-import './css/oswald.css'
+import './css/roboto.css'
 import './css/open-sans.css'
 import './css/pure-min.css'
 import './App.css'
 
 class App extends Component {
-  
+
   constructor(props) {
     super(props)
 
@@ -23,8 +24,8 @@ class App extends Component {
 
 
   componentDidMount() {
-    var pinata_api_key = config.MY_KEY;
-    var pinata_secret_api_key = config.SECRET_KEY;
+    var pinata_api_key = config.pinata_api_key;
+    var pinata_secret_api_key = config.pinata_secret_api_key;
 
     axios
       .get("https://api.pinata.cloud/data/testAuthentication", {
@@ -35,8 +36,7 @@ class App extends Component {
       })
       .then(function (response) {
         //handle your response here
-        const testingAxios = response.data;
-        this.setState({ testingAxios });
+        console.log(response.data)
       })
       .catch(function (error) {
         //handle error here
