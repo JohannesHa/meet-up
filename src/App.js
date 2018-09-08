@@ -5,6 +5,7 @@ import axios from 'axios';
 import config from '../config';
 
 import DiscoverSearchContainer from './components/DiscoverSearch/DiscoverSearchContainer'
+import CreateGroupContainer from './layouts/createGroup/CreateGroupContainer'
 
 // Styles
 import './css/roboto.css'
@@ -50,6 +51,7 @@ class App extends Component {
         <Switch>
           <Route exact path="/" component={HomeContainer} />
           <Route exact path="/search" component={DiscoverSearchContainer} />
+          <Route exact path="/group/create" component={CreateGroupContainer} />
         </Switch>
         <ul>
           {console.log("tested Axios:" + this.state.testingAxios)}
