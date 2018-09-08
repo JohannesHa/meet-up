@@ -6,6 +6,7 @@ import config from '../config';
 
 import Nav from './components/Nav.js'
 import DiscoverSearchContainer from './components/DiscoverSearch/DiscoverSearchContainer'
+import ProfileContainer from './components/Profile/ProfileContainer';
 
 // Styles
 import './css/roboto.css'
@@ -51,6 +52,7 @@ class App extends Component {
         <Switch>
           <Route exact path="/" component={HomeContainer} />
           <Route exact path="/search" component={DiscoverSearchContainer} />
+          <Route exact path="/profile" component={ProfileContainer} />
         </Switch>
         <ul>
           {console.log("tested Axios:" + this.state.testingAxios)}

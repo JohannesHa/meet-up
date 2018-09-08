@@ -128,3 +128,17 @@ ul li:not(:last-child) {
   margin-bottom: 20;
   padding-bottom: 20;
 }
+
+.qr-code-card {
+  background-color: #ffffff;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 80%;
+  border-radius: 15px;
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+
+.qrcode {
+}
