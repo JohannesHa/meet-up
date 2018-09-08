@@ -13,7 +13,7 @@ import Subheader from '../Subheader.js'
 const LocationSearch = ({ onSelectCountry, onSelectRegion, country, region }) => {
   return (
     <main className="container">
-      <Header>Let's give it a try</Header>
+      <Header>Search</Header>
       <Subheader>Enter your region to start</Subheader>
       <CountryDropdown
         classes="dropdown-country"
