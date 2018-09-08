@@ -24,7 +24,7 @@ contract EnsSubdomainFactory is Ownable{
 	bool public locked;
 	bytes32 ethNamehash = 0x7cb6c9ce54d6fba5d4f3008113677a8dbd765729ceed52dda637e002895280df;
 
-	event SubdomainCreated(address indexed creator, address indexed owner, string subdomain, string domain);
+	event SubdomainCreated(address target, address indexed creator, address indexed owner, string subdomain, string domain);
 	event OwnershipTransferred(address indexed previousOwner, address indexed newOwner);
 	event RegistryUpdated(address indexed previousRegistry, address indexed newRegistry);
 	event ResolverUpdated(address indexed previousResolver, address indexed newResolver);
@@ -65,7 +65,7 @@ contract EnsSubdomainFactory is Ownable{
 		//change the ownership back to requested owner
 		registry.setOwner(subdomainNamehash, _owner);
 		
-		emit SubdomainCreated(msg.sender, _owner, _subdomain, _domain);
+		emit SubdomainCreated(_target, msg.sender, _owner, _subdomain, _domain);
 	}
 
 	/**

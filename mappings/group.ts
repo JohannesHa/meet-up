@@ -7,16 +7,14 @@ export function handleJoinGroup(event: JoinGroup): void {
 
     let group = store.get('Group', groupId);
 
-    // group.setString('id', groupId);
 
-    // add user to list of users that are members
+    // let membersArray = group.get('members').toArray();
+    // membersArray.push(Value.fromString(userId));
+    //
+    // group.setArray('members', membersArray);
 
-    // group.getEntry('members').push(Value.fromString(userId))
 
-
-    // group.setArray('members', [])
-
-    // group.setBigInt('memberCount', event.params.memberCount);
+    group.setU256('memberCount', event.params.memberCount);
 
     let user = new Entity();
     user.setString('id', userId);
@@ -55,6 +53,7 @@ export function handleCreateEvent(event: CreateEvent): void {
 
     let user = new Entity();
     user.setString('id', userId);
+    user.setAddress('address', userId as Address);
 
     let eventEntity = new Entity();
     eventEntity.setString('id', eventId);
@@ -62,6 +61,8 @@ export function handleCreateEvent(event: CreateEvent): void {
     eventEntity.setString('creator', userId);
     eventEntity.setString('name', event.params.name);
     eventEntity.setString('description', event.params.description);
+
+    eventEntity.setAddress('address', eventId as Address);
     // What should time be
     // eventEntity.setString('date', event.params.data);
 
