@@ -25,19 +25,20 @@ contract MeetupGroupFactory is Ownable {
         string _description,
         bytes _logo
     ) public {
-
-        // create ens here
-
         address group = new MeetupGroup(
         msg.sender,
         _name,
-        _ens,
         _geohash,
         _category,
         _description,
         _logo
         );
 
-        emit CreateGroup(group, _name, _description, _ens, msg.sender);
+        // create ens here
+
+        MeetupGroup Group = MeetupGroup(group);
+        Group.addENS(ens);
+
+        emit CreateGroup(group, _name, _description, ens, msg.sender);
     }
 }
