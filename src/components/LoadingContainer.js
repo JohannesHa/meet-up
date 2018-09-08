@@ -113,7 +113,7 @@ class LoadingContainer extends Component {
           <div className="pure-g">
             <div className="pure-u-1-1">
               <StyledLoadingIndicatorContainer color={colors.purple}>
-                <div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
+                <div className="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
               </StyledLoadingIndicatorContainer>
               <Subtitle>
                 Waiting for Web3...
@@ -135,7 +135,7 @@ class LoadingContainer extends Component {
         <div className="pure-g">
           <div className="pure-u-1-1">
             <StyledLoadingIndicatorContainer color={colors.purple}>
-              <div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
+              <div className="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
             </StyledLoadingIndicatorContainer>
             <Subtitle>
               Loading dapp...

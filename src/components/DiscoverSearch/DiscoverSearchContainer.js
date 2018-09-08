@@ -5,6 +5,8 @@ import React, { Component } from 'react';
 import LocationSearch from '../LocationSearch/LocationSearch';
 import CategorySearch from '../CategorySearch/CategorySearch';
 
+import Nav from '../../components/Nav.js'
+
 class DiscoverSearchContainer extends Component {
   constructor(props) {
     super(props);
@@ -104,6 +106,7 @@ class DiscoverSearchContainer extends Component {
           <button onClick={this.searchGroups}>Search</button>
         }
 
+        <Nav current={1}/>
       </div>
     )
   }
