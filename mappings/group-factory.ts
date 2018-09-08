@@ -5,10 +5,6 @@ export function handleCreateGroup(event: GroupCreated): void {
     let groupId = event.params.id.toHex();
     let userId = event.params.userId.toHex();
 
-    // How should this work?
-    // location will be encoded as 2 fields currently - no id
-    // Is there any point having it separate entity
-    let location = new Entity();
 
     let group = new Entity();
     group.setString('id', groupId);
@@ -18,6 +14,9 @@ export function handleCreateGroup(event: GroupCreated): void {
     group.setString('ens', event.params.ens);
     group.setString('category', event.params.category);
     group.setString('logo', event.params.logo);
+    group.setString('country', event.params.country);
+    group.setString('region', event.params.region);
+    group.setBigInt('memberCount', event.params.memberCount);
 
 
 

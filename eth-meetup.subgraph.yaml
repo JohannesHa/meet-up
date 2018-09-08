@@ -3,10 +3,10 @@ schema:
   file: ./schema.graphql
   dataSources:
   - kind: ethereum/contract
-    name: GroupFactory
+    name: MeetupGroupFactory
     source:
-      address: "f87e31492faf9a91b02ee0deaad50d51d56d5d4d"
-      abi: GroupFactory
+      address: "0x20479bf8035c5d7e64b5ae469905ea2fcfe345ba"
+      abi: MeetupGroupFactory
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.1
@@ -15,13 +15,13 @@ schema:
       - Group
       - User
       abis:
-      - name: GroupFactory
-        file: ./abis/GroupFactory.json
+      - name: MeetupGroupFactory
+        file: ./build/contracts/MeetupGroupFactory.json
       eventHandlers:
       - event: CreateGroup(address,address,uint)
         handler: handleCreateGroup
-      - event: DeleteGroup(address)
-        handler: handleDeleteGroup
+#      - event: DeleteGroup(address)
+#        handler: handleDeleteGroup
       file: ./mappings/group-factory.ts
 
 

@@ -9,7 +9,8 @@ type Group @entity {
     logo: String
     members: [User!]
     memberCount: BigInt!
-    location: Location!
+    country: String!
+    region: String!
     category: EventCategory
 }
 
@@ -27,12 +28,6 @@ type Event @entity {
     creator: User!
     group: Group!
 }
-
-type Location @entity {
-    country: String!
-    region: String!
-}
-
 
 
 type User @entity {
