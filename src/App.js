@@ -7,6 +7,7 @@ import config from '../config';
 import DiscoverSearchContainer from './components/DiscoverSearch/DiscoverSearchContainer'
 import GroupContainer from './components/Group/GroupContainer'
 import CreateGroupContainer from './layouts/createGroup/CreateGroupContainer'
+import ProfileContainer from './components/Profile/ProfileContainer';
 
 // Styles
 import './css/roboto.css'
@@ -55,6 +56,7 @@ class App extends Component {
           <Route exact path="/create" component={CreateGroupContainer} />
           <Route path="*.meet-up.eth" component={GroupContainer} />
           <Route render={() => { <div>Not Found</div> }} />
+          <Route exact path="/profile" component={ProfileContainer} />
         </Switch>
         <ul>
           {console.log("tested Axios:" + this.state.testingAxios)}
