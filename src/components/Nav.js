@@ -12,7 +12,7 @@ const StyledNav = styled(Row)`
   height: auto;
   position: absolute;
   bottom: 0;
-  padding: 20px 0;
+  padding: 20px;
 `;
 
 const StyledCol = styled(Col)`
@@ -48,24 +48,38 @@ const StyledButton = styled(Button)`
   }
 `
 
-const Nav = ({ active, ...props }) => (
+const StyledPlusButton = styled(StyledButton)`
+  background-color: ${colors.dark} !important;
+  font-size: auto;
+
+  &:active {
+    background-color: ${colors.dark} !important;
+  }
+`
+
+const Nav = ({ current, ...props }) => (
   <StyledNav {...props}>
-    <StyledCol xs={3}>
+    <StyledCol xs={2}>
+      <StyledButton>
+        <Glyphicon glyph="home" />
+      </StyledButton>
+    </StyledCol>
+    <StyledCol xs={2}>
       <StyledButton>
         <Glyphicon glyph="globe" />
       </StyledButton>
     </StyledCol>
-    <StyledCol xs={3}>
+    <StyledCol xs={4}>
+      <StyledPlusButton>
+        <Glyphicon glyph="plus" />
+      </StyledPlusButton>
+    </StyledCol>
+    <StyledCol xs={2}>
       <StyledButton>
         <Glyphicon glyph="search" />
       </StyledButton>
     </StyledCol>
-    <StyledCol xs={3}>
-      <StyledButton>
-        <Glyphicon glyph="plus" />
-      </StyledButton>
-    </StyledCol>
-    <StyledCol xs={3}>
+    <StyledCol xs={2}>
       <StyledButton>
         <Glyphicon glyph="user" />
       </StyledButton>
@@ -74,7 +88,7 @@ const Nav = ({ active, ...props }) => (
 );
 
 Nav.propTypes = {
-  active: PropTypes.number,
+  current: PropTypes.number,
 };
 
 export default Nav;
