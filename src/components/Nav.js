@@ -61,7 +61,7 @@ const Nav = ({ current, ...props }) => (
       </StyledButton>
     </StyledCol>
     <StyledCol xs={3}>
-      <StyledButton href="/group/create" current={current === 2}>
+      <StyledButton href="/create" current={current === 2}>
         <Glyphicon glyph="plus" />
       </StyledButton>
     </StyledCol>
