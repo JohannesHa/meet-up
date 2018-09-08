@@ -22,6 +22,7 @@ contract MeetupGroup is Ownable {
     /* Public functions */
     /**
      * @dev Constructor.
+     * @param _owner Address of the user that creates the group from factory contract
      * @param _name The name of the meetup group
      * @param _ens ENS string of meetup
      * @param _geohash Geohash of the meetup group
@@ -31,6 +32,7 @@ contract MeetupGroup is Ownable {
      
      */
     constructor (
+        address _owner,
         string _name,
         string _ens,
         bytes8 _geohash,
@@ -38,6 +40,9 @@ contract MeetupGroup is Ownable {
         string _description,
         bytes _logo
     ) public {
+        require(_owner != 0x0, "Owner needs to be a valid address");
+        owner = _owner;
+
         if (bytes(_name).length != 0){
             name = _name;
         } else {
