@@ -8,7 +8,7 @@ type Group @entity {
     description: String
     logo: String
     members: [User]
-    memberCount: Int!
+    memberCount: BigInt!
     location: Location!
     category: EventCategory
 }
@@ -16,12 +16,13 @@ type Group @entity {
 type Event @entity {
     address: Bytes!
     name: String!
-    maxAttendees: Int!
+    maxAttendees: BigInt!
     description: String!
-    depositAmount: Int!
+    depositAmount: BigInt!
     attendees: [User]
-    attendeeCount: Int!
-    coolingPeriod: Int!
+    attendeeCount: BigInt!
+    isFull: Boolean!
+    coolingPeriod: BigInt!
     eventDate: String!
     creator: User!
     group: Group!
@@ -49,13 +50,4 @@ enum EventCategory {
     games
     fun
     food
-}
-
-type Query {
-    getAdminGroupsForUser(address: String!): [Group]
-    getMemberGroupsForUser(address: String!): [Group]
-    getEventsForUser(address: String!): [Event]
-    getGroupsForSearch(country: String!, region: String!, category: String!): [Group]
-    getGroupFromEns(ensName: String!): Group
-    getEventfromAddress(address: String!): Event
 }
