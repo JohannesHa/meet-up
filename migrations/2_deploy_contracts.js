@@ -22,9 +22,7 @@ module.exports = function (deployer) {
       return Promise.all([ensregistryPromise, ensresolverPromise]).then(function ([ensresolver, ensregistry]) {
         return deployer.deploy(EnsSubdomainFactory, ensregistry.address, ensresolver.address);
       }).then(function(){
-        return EnsSubdomainFactory.deployed();
-      }).then(function(subdomainFactory){
-        return deployer.deploy(MeetupGroupFactory, subdomainFactory.address);
+        return deployer.deploy(MeetupGroupFactory);
       })
     })
   });
