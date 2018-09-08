@@ -10,10 +10,12 @@ export function handleJoinGroup(event: JoinGroup): void {
 
     // add user to list of users that are members
 
+    group.setArray('members', [Value.fromString(userId)])
+
     group.setBigInt('memberCount', event.params.memberCount);
 
-    let user = new Entity();
-    user.setString('id', userId);
+    // let user = new Entity();
+    // user.setString('id', userId);
 
     // add group to list of groups user attends
 

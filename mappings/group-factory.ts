@@ -21,26 +21,20 @@ export function handleCreateGroup(event: GroupCreated): void {
 
 
 
-    let user = new Entity();
-    user.setString('id', userId);
-
-    // Add group id to list of adminGroupIds
-    user.setString('groupId', groupId);
-
 
 
     store.set('Group', groupId, group);
-    store.set('User', userId, user);
+    // store.set('User', userId, user);
 
 }
 
-export function handleDeleteGroup(event: GroupDeleted): void {
-    let groupId = event.params.id.toHex();
-    let userId = event.params.userId.toHex();
-
-    // Remove all events from group
-    // Remove group from users memberGroups and adminGroups
-    // is this automatic
-
-    store.remove('Group', groupId);
-}
+// export function handleDeleteGroup(event: GroupDeleted): void {
+//     let groupId = event.params.id.toHex();
+//     let userId = event.params.userId.toHex();
+//
+//     // Remove all events from group
+//     // Remove group from users memberGroups and adminGroups
+//     // is this automatic
+//
+//     store.remove('Group', groupId);
+// }
