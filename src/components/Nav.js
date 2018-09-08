@@ -51,22 +51,22 @@ const StyledButton = styled(Button)`
 const Nav = ({ current, ...props }) => (
   <StyledNav {...props}>
     <StyledCol xs={3}>
-      <StyledButton href="/">
+      <StyledButton href="/" current={current === 0}>
         <Glyphicon glyph="home" />
       </StyledButton>
     </StyledCol>
     <StyledCol xs={3}>
-      <StyledButton href="/search">
+      <StyledButton href="/search" current={current === 1}>
         <Glyphicon glyph="search" />
       </StyledButton>
     </StyledCol>
     <StyledCol xs={3}>
-      <StyledButton>
+      <StyledButton href="/create" current={current === 2}>
         <Glyphicon glyph="plus" />
       </StyledButton>
     </StyledCol>
     <StyledCol xs={3}>
-      <StyledButton>
+      <StyledButton href="/profile" current={current === 3}>
         <Glyphicon glyph="user" />
       </StyledButton>
     </StyledCol>
@@ -74,7 +74,7 @@ const Nav = ({ current, ...props }) => (
 );
 
 Nav.propTypes = {
-  current: PropTypes.number,
+  current: PropTypes.bool,
 };
 
 export default Nav;
