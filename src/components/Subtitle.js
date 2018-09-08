@@ -8,6 +8,7 @@ const StyledSubtitle = styled.h2`
   color: ${colors.subtitle};
   margin: 0;
   padding: 0;
+  font-weight: 200;
 `;
 
 const Subtitle = ({ children, ...props }) => (
