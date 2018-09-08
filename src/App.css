@@ -3,6 +3,7 @@
 body,
 .pure-g [class*=pure-u] {
   font-family: 'Open Sans', sans-serif;
+  background-color: #171439;
 }
 
 .header {
@@ -108,4 +109,9 @@ ul li:not(:last-child) {
   color: darkgreen;
   background: darkseagreen;
   border: 1px solid darkgreen;
+}
+
+.descriptionDiv {
+  display:flex; 
+  flex-direction:row;
 }
