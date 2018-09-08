@@ -1,16 +1,23 @@
 pragma solidity 0.4.24;
 
-import "./zeppelin/ownership/Ownable.sol";
 import "./MeetupGroup.sol";
+import "./zeppelin/ownership/Ownable.sol";
 import "./radek1st/EnsSubdomainFactory.sol";
 
-contract MeetupGroupFactory is Ownable, EnsSubdomainFactory {
+contract MeetupGroupFactory is Ownable {
 
+    EnsSubdomainFactory public subdomainFactory;
     address[] public groups;
 
     event CreateGroup(address id, string name, string description, string ens, address userId);
 
     /* Public functions */
+    /**
+     *@dev Constructor 
+     */
+    constructor(EnsSubdomainFactory _subdomainFactory) public {
+        subdomainFactory = _subdomainFactory;
+    }
     /**
      * @dev Create Group.
      * @param _name The name of the meetup group
@@ -36,8 +43,9 @@ contract MeetupGroupFactory is Ownable, EnsSubdomainFactory {
         _description,
         _logo
         );
+        groups.push(group);
 
-        newSubdomain(_name, "meet-up", msg.sender, group);
+        subdomainFactory.newSubdomain(_name, "meet-up", msg.sender, group);
 
         emit CreateGroup(group, _name, _description, _ens, msg.sender);
     }
