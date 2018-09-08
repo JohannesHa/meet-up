@@ -71,7 +71,8 @@
     "prepare": "npm run build",
     "codegen": "graph generate-types eth-meetup.subgraph.yaml",
     "build": "graph build subgraph.yaml",
-    "build-ipfs": "graph build --ipfs /ip4/127.0.0.1/tcp/5001 eth-meetup.subgraph.yaml"
+    "build-ipfs": "graph build --ipfs /ip4/127.0.0.1/tcp/5001 eth-meetup.subgraph.yaml",
+    "graph-deploy": "graph deploy --watch --verbosity debug --node process.env.GRAPH_NODE --ipfs process.env.GRAPH_IPFS --name eth-meetup --api-key process.env.GRAPH_API"
   },
   "jest": {
     "collectCoverageFrom": [

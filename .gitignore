@@ -1,5 +1,5 @@
 config.js
-
+.env
 /node_modules
 /build
 /build_webpack
