@@ -4,6 +4,10 @@
 import React from 'react';
 import Group from '../../components/Group/Group';
 import EventList from '../../components/EventList/EventList';
+import {withApollo, compose, graphql} from 'react-apollo';
+import gql from 'graphql-tag';
+
+
 
 const GroupPageContainer = () => {
   return (
@@ -15,4 +19,16 @@ const GroupPageContainer = () => {
   )
 };
 
+
+
 export default GroupPageContainer;
+
+// const GroupByEnsQuery = gql`
+//   query groups( )
+// `
+// `
+
+// export default compose(
+//   withApollo,
+//   graphql()
+// )(Group)
