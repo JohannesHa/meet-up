@@ -2,6 +2,7 @@ pragma solidity ^0.4.23;
 
 import "./EnsRegistry.sol";
 import "./EnsResolver.sol";
+import "../zeppelin/ownership/Ownable.sol";
 
 // ---------------------------------------------------------------------------------------------------
 // EnsSubdomainFactory - allows creating and configuring custom ENS subdomains with one contract call.
@@ -17,8 +18,7 @@ import "./EnsResolver.sol";
  * to this deployed contract address. For example, transfer the ownership of "startonchain.eth"
  * so anyone can create subdomains like "radek.startonchain.eth".
  */
-contract EnsSubdomainFactory {
-    address public owner;
+contract EnsSubdomainFactory is Ownable{
 	EnsRegistry public registry;
 	EnsResolver public resolver;
 	bool public locked;
@@ -31,19 +31,9 @@ contract EnsSubdomainFactory {
 	event DomainTransfersLocked();
 
 	constructor(EnsRegistry _registry, EnsResolver _resolver) public {
-		owner = msg.sender;
 		registry = _registry;
 		resolver = _resolver;
 		locked = false;
-	}
-
-	/**
-	 * @dev Throws if called by any account other than the owner.
-	 *
-	 */
-	modifier onlyOwner() {
-		require(msg.sender == owner);
-		_;
 	}
 
 	/**
@@ -135,15 +125,5 @@ contract EnsSubdomainFactory {
 		require(resolver != _resolver, "new resolver should be different from old");
 		emit ResolverUpdated(resolver, _resolver);
 		resolver = _resolver;
-	}
-
-	/**
-	 * @dev Allows the current owner to transfer control of the contract to a new owner.
-	 * @param _owner The address to transfer ownership to.
-	 */
-	function transferContractOwnership(address _owner) public onlyOwner {
-		require(_owner != address(0), "cannot transfer to address(0)");
-		emit OwnershipTransferred(owner, _owner);
-		owner = _owner;
 	}
 }
