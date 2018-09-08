@@ -1,10 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Router, Route } from 'react-router'
+import { Router, Route, Switch } from 'react-router'
 import { DrizzleProvider } from 'drizzle-react'
 
 // Layouts
 import App from './App'
+import SearchContainer from './layouts/search/SearchContainer.js'
+
 import LoadingContainer from './components/LoadingContainer.js'
 
 import { history, store } from './store'
@@ -14,7 +16,10 @@ ReactDOM.render((
     <DrizzleProvider options={drizzleOptions} store={store}>
       <LoadingContainer>
         <Router history={history} store={store}>
-          <Route exact path="/" component={App} />
+          <Switch>
+            <Route exact path="/" component={App} />
+            <Route exact path="/search" component={SearchContainer} />
+          </Switch>
         </Router>
       </LoadingContainer>
     </DrizzleProvider>
