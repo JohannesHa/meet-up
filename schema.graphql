@@ -10,15 +10,17 @@ type Group @entity {
     members: [User]
     memberCount: Int!
     location: Location!
+    category: EventCategory
 }
 
 type Event @entity {
-    address: String!
+    address: Bytes!
     name: String!
     maxAttendees: Int!
     description: String!
     depositAmount: Int!
     attendees: [User]
+    attendeeCount: Int!
     coolingPeriod: Int!
     eventDate: String!
     creator: User!
@@ -33,10 +35,20 @@ type Location @entity {
 
 
 type User @entity {
-    address: String!
+    address: Bytes!
     adminGroups: [Group] @derivedFrom(field: "admin")
     memberGroups: [Group] @derivedFrom(field: "members")
     upcomingEvents: [Event] @derivedFrom(field: "attendees")
+}
+
+enum EventCategory {
+    technology
+    science
+    art
+    history
+    games
+    fun
+    food
 }
 
 type Query {
