@@ -2,9 +2,8 @@
   "name": "drizzle-box",
   "version": "1.0.0",
   "devDependencies": {
-    "@graphprotocol/graph-cli": "^0.2.4",
     "ganache-cli": "^6.1.6",
-    "graph-cli": "https://github.com/graphprotocol/graph-cli.git#master",
+    "graph-cli": "https://github.com/graphprotocol/graph-cli.git#ethberlin",
     "openzeppelin-solidity": "^1.10.0",
     "truffle": "^4.1.13",
     "truffle-hdwallet-provider": "^0.0.5"
@@ -73,10 +72,10 @@
     "test": "node scripts/test.js --env=jsdom",
     "chain": "ganache-cli",
     "prepare": "npm run build",
-    "codegen": "graph generate-types eth-meetup.subgraph.yaml",
+    "codegen": "graph generate-types subgraph.yaml",
     "build-graph": "graph build subgraph.yaml",
-    "build-ipfs": "graph build --ipfs /ip4/127.0.0.1/tcp/5001 eth-meetup.subgraph.yaml",
-    "graph-deploy": "graph deploy --watch --verbosity debug --node process.env.GRAPH_NODE --ipfs process.env.GRAPH_IPFS --name eth-meetup --api-key process.env.GRAPH_API"
+    "build-ipfs": "graph build --ipfs /ip4/35.242.224.197/tcp/8030 subgraph.yaml",
+    "graph-deploy": "graph deploy --watch --verbosity debug --node http://35.198.181.248:8020 --ipfs /ip4/35.242.224.197/tcp/8030 --subgraph-name eth-meetup --api-key a64c8bfe2dc448ce8470b60271a38ff6 subgraph.yaml"
   },
   "jest": {
     "collectCoverageFrom": [

@@ -10,8 +10,8 @@ contract MeetupGroupFactory is Ownable {
     address[] public groups;
 
     event CreateGroup(
-        address id, 
-        address userId, 
+        address indexed id,
+        address indexed userId,
         string name, 
         string description, 
         string ens, 
