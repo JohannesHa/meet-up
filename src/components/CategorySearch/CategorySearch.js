@@ -4,11 +4,11 @@
 import React from 'react';
 import CategoryList from '../CategoryList/CategoryListContainer';
 
-const CategorySearch = () => {
+const CategorySearch = ({onSelectCategory}) => {
   return (
     <div>
       <h2>Pick a category</h2>
-      <CategoryList/>
+      <CategoryList onSelectCategory={onSelectCategory}/>
     </div>
   )
 };

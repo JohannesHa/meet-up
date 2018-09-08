@@ -4,11 +4,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const CategoryList = (categories) => {
+const CategoryList = ({categories, onSelectCategory}) => {
   return (
     <div>
-      {categories.forEach((category) => {
-        return <div>Category</div>
+      {categories.map((category) => {
+        console.log(category)
+        return <h3 onClick={() => onSelectCategory(category)}>{category}</h3>
       })}
     </div>
   )
