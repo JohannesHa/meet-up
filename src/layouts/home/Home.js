@@ -4,6 +4,8 @@ import logo from '../../logo.png'
 import GroupController from '../GroupController/GroupController';
 
 import Nav from '../../components/Nav.js'
+import Header from '../../components/Header.js'
+import Subheader from '../../components/Subheader.js'
 
 class Home extends Component {
   render() {
@@ -11,7 +13,8 @@ class Home extends Component {
       <div>
         <main className="container">
           <div>
-            <h1 style={styles.h1Style}>Pick a group!</h1>
+            <Header>Discover</Header>
+            <Subheader>Find groups that interest you</Subheader>
             <GroupController />
           </div>
         </main>
@@ -20,16 +23,6 @@ class Home extends Component {
     )
   }
 }
-
-
-const styles = {
-  h1Style: {
-    color: '#ffffff',
-    textAlign: 'center',
-    marginBottom: 80,
-    fontWeight: 200,
-  }
-};
 
 
 export default Home

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { colors, fontSizes, width } from '../styles.js';
 
-const StyledTitle = styled.h1`
+const StyledTitle = styled.h2`
   text-decoration: none;
   color: ${colors.title};
   font-size: ${fontSizes.title};
