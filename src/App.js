@@ -3,6 +3,7 @@ import { Route } from 'react-router'
 import HomeContainer from './layouts/home/HomeContainer'
 import axios from 'axios';
 import config from '../config';
+import DiscoverSearchContainer from './components/DiscoverSearch/DiscoverSearchContainer';
 
 
 // Styles
@@ -47,6 +48,11 @@ class App extends Component {
     return (
       <div className="App">
         <Route exact path="/" component={HomeContainer} />
+        <ul>
+          {console.log("tested Axios:" + this.state.testingAxios)}
+          {this.state.testingAxios.map(testingAxios => <li>{testingAxios.message}</li>)}
+        </ul>
+        <DiscoverSearchContainer/>
       </div>
     );
   }
