@@ -4,6 +4,7 @@
   "devDependencies": {
     "@graphprotocol/graph-cli": "^0.2.4",
     "ganache-cli": "^6.1.6",
+    "graph-cli": "https://github.com/graphprotocol/graph-cli.git#master",
     "openzeppelin-solidity": "^1.10.0",
     "truffle": "^4.1.13",
     "truffle-hdwallet-provider": "^0.0.5"
@@ -68,12 +69,11 @@
   },
   "scripts": {
     "start": "node scripts/start.js",
-    "build": "truffle compile && node scripts/build.js",
+    "build": "graph build subgraph.yaml",
     "test": "node scripts/test.js --env=jsdom",
     "chain": "ganache-cli",
     "prepare": "npm run build",
     "codegen": "graph generate-types eth-meetup.subgraph.yaml",
-    "build": "graph build subgraph.yaml",
     "build-ipfs": "graph build --ipfs /ip4/127.0.0.1/tcp/5001 eth-meetup.subgraph.yaml",
     "graph-deploy": "graph deploy --watch --verbosity debug --node process.env.GRAPH_NODE --ipfs process.env.GRAPH_IPFS --name eth-meetup --api-key process.env.GRAPH_API"
   },

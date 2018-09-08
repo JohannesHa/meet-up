@@ -3,11 +3,11 @@ scalar Date
 type Group @entity {
     name: String!
     ens: String!
-    events: [Event] @derivedFrom(field: "group")
+    events: [Event!] @derivedFrom(field: "group")
     admin: User!
     description: String
     logo: String
-    members: [User]
+    members: [User!]
     memberCount: BigInt!
     location: Location!
     category: EventCategory
@@ -19,7 +19,7 @@ type Event @entity {
     maxAttendees: BigInt!
     description: String!
     depositAmount: BigInt!
-    attendees: [User]
+    attendees: [User!]
     attendeeCount: BigInt!
     isFull: Boolean!
     coolingPeriod: BigInt!
@@ -37,9 +37,9 @@ type Location @entity {
 
 type User @entity {
     address: Bytes!
-    adminGroups: [Group] @derivedFrom(field: "admin")
-    memberGroups: [Group] @derivedFrom(field: "members")
-    upcomingEvents: [Event] @derivedFrom(field: "attendees")
+    adminGroups: [Group!] @derivedFrom(field: "admin")
+    memberGroups: [Group!] @derivedFrom(field: "members")
+    upcomingEvents: [Event!] @derivedFrom(field: "attendees")
 }
 
 enum EventCategory {
