@@ -15,6 +15,8 @@ export function hanldeAttendEvent(event: AttendEvent): void {
 
     eventEntity.setBoolean('isFull', event.params.full);
 
+    eventEntity.setBigInt('date', event.params.date);
+
     // Add user to list of userIds attending event
     eventEntity.setArray('attendees', [Value.fromString(userId)]);
 

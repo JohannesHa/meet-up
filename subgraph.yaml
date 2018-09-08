@@ -17,30 +17,32 @@ dataSources:
     abis:
     - name: MeetupGroupFactory
       file: ./build/contracts/MeetupGroupFactory.json
+#    - name: MeetupGroup
+#      file: ./build/contracts/MeetupGroup.json
     eventHandlers:
     - event: CreateGroup(address,address,string,string,string,string,string,string)
       handler: handleCreateGroup
     file: ./mappings/group-factory.ts
-#- kind: ethereum/contract
-#  name: MeetupGroup
-#  source:
-#    address: 'f87e31492faf9a91b02ee0deaad50d51d56d5d4d'
-#    abi: MeetupGroup
-#  mapping:
-#    kind: ethereum/events
-#    apiVersion: 0.0.1
-#    language: wasm/assemblyscript
-#    entities:
-#    - Group
-#    - User
-#    - Event
-#    abis:
-#    - name: MeetupGroup
-#      file: ./build/contracts/MeetupGroup.json
-#    eventHandlers:
-#    - event: JoinGroup(address, address, address, string, string, uint, byte, uint, uint)
-#      handler: handleJoinGroup
-#    - event: CreateEvent(address)
-#      handler: handleCreateEvent
-#    file: ./mappings/group.ts
+- kind: ethereum/contract
+  name: MeetupGroup
+  source:
+    address: 'f87e31492faf9a91b02ee0deaad50d51d56d5d4d'
+    abi: MeetupGroup
+  mapping:
+    kind: ethereum/events
+    apiVersion: 0.0.1
+    language: wasm/assemblyscript
+    entities:
+    - Group
+    - User
+    - Event
+    abis:
+    - name: MeetupGroup
+      file: ./build/contracts/MeetupGroup.json
+    eventHandlers:
+    - event: JoinGroup(address, address, uint)
+      handler: handleJoinGroup
+    - event: CreateEvent(address, address, address, string, string, uint, byte, uint, uint)
+      handler: handleCreateEvent
+    file: ./mappings/group.ts
 

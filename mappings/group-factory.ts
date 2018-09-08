@@ -5,7 +5,6 @@ export function handleCreateGroup(event: CreateGroup): void {
     let groupId = event.params.id.toHex();
     let userId = event.params.userId.toHex();
 
-
     let group = new Entity();
     group.setString('id', groupId);
     group.setString('admin', userId);
@@ -13,10 +12,10 @@ export function handleCreateGroup(event: CreateGroup): void {
     group.setString('description', event.params.description);
     group.setString('ens', event.params.ens);
     group.setString('category', event.params.category);
-    // group.setBytes('logo', event.params.logo);
+    // group.setBytes('logo', groupContract.);
     group.setString('country', event.params.country);
     group.setString('region', event.params.region);
-    // group.setBigInt('memberCount', event.params.memberCount);
+    // group.setBigInt('memberCount', groupContract.memberCount());
 
 
 

@@ -2,7 +2,7 @@
  * Created by will on 08/09/18.
  */
 export function handleJoinGroup(event: JoinGroup): void {
-    let groupId = event.params.id.toHex();
+    let groupId = event.params.groupId.toHex();
     let userId = event.params.userId.toHex();
 
     let group = store.get('Group', groupId);
@@ -11,7 +11,9 @@ export function handleJoinGroup(event: JoinGroup): void {
 
     // add user to list of users that are members
 
-    group.getEntry('members').push(Value.fromString(userId))
+    // group.getEntry('members').push(Value.fromString(userId))
+
+
     // group.setArray('members', [])
 
     // group.setBigInt('memberCount', event.params.memberCount);
