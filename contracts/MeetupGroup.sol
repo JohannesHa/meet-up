@@ -4,11 +4,11 @@ import "./zeppelin/lifecycle/Destructible.sol";
 import "./blockparty/Conference.sol";
 
 contract MeetupGroup is Destructible {
-    string public name;
-    string public country;
-    string public region;
-    string public category;
-    string public description;
+    // string public name;
+    // string public country;
+    // string public region;
+    // string public category;
+    // string public description;
     bytes public logo;
     uint public memberCount;
 
@@ -33,56 +33,51 @@ contract MeetupGroup is Destructible {
     /* Public functions */
     /**
      * @dev Constructor.
-     * @param _owner Address of the user that creates the group from factory contract
-     * @param _name The name of the meetup group
-     * @param _country Country of meetup group
-     * @param _region Region of meetup group
-     * @param _category Category the meetup group belongs to
-     * @param _description Desciption of the meetup group
+     * @param _owner Address of the user that creates the group from factory contractto
      * @param _logo IPFS link
      
      */
     constructor (
         address _owner,
-        string _name,
-        string _country,
-        string _region,
-        string _category,
-        string _description,
+        // string _name,
+        // string _country,
+        // string _region,
+        // string _category,
+        // string _description,
         bytes _logo
     ) public {
         require(_owner != 0x0, "Owner needs to be a valid address");
         owner = _owner;
 
-        if (bytes(_name).length != 0){
-            name = _name;
-        } else {
-            name = "Test";
-        }
+        // if (bytes(_name).length != 0){
+        //     name = _name;
+        // } else {
+        //     name = "Test";
+        // }
 
-        if (bytes(_country).length != 0){
-            country = _country;
-        } else {
-            country = "TestCountry";
-        }
+        // if (bytes(_country).length != 0){
+        //     country = _country;
+        // } else {
+        //     country = "TestCountry";
+        // }
 
-        if (bytes(_region).length != 0){
-            region = _region;
-        } else {
-            region = "TestRegion";
-        }
+        // if (bytes(_region).length != 0){
+        //     region = _region;
+        // } else {
+        //     region = "TestRegion";
+        // }
 
-        if (bytes(_category).length != 0){
-            category = _category;
-        } else {
-            category = "Tech";
-        }
+        // if (bytes(_category).length != 0){
+        //     category = _category;
+        // } else {
+        //     category = "Tech";
+        // }
 
-        if (bytes(_description).length != 0){
-            description = _description;
-        } else {
-            description = "Test description";
-        }
+        // if (bytes(_description).length != 0){
+        //     description = _description;
+        // } else {
+        //     description = "Test description";
+        // }
 
         if (_logo.length != 0){
             logo = _logo;
@@ -113,15 +108,18 @@ contract MeetupGroup is Destructible {
         uint _date,
         bytes8 _geohash
     ) public onlyOwner {
+        require(bytes(_name).length > 0, "Name has to exist");
+        require(_date > 0, "Date has to exist");
+        require(_geohash > 0, "Geohash has to exist");
         address conference = new Conference(
             msg.sender,
-            _name,
+            // _name,
             _deposit,
             _limitOfParticipants,
-            _coolingPeriod,
-            _description,
-            _date,
-            _geohash
+            _coolingPeriod
+            // _description,
+            // _date,
+            // _geohash
         );
         events.push(conference);
         emit CreateEvent(conference, this, msg.sender, _name, _description, _date, _geohash, _limitOfParticipants, _deposit);

@@ -46,13 +46,17 @@ contract MeetupGroupFactory is Ownable {
         string _description,
         bytes _logo
     ) public {
+        require(bytes(_name).length > 0, "Name has to exist");
+        require(bytes(_country).length > 0, "Country has to exist");
+        require(bytes(_region).length > 0, "Region has to exist");
+        require(bytes(_category).length > 0, "Category has to exist");
         address group = new MeetupGroup(
         msg.sender,
-        _name,
-        _country,
-        _region,
-        _category,
-        _description,
+        // _name,
+        // _country,
+        // _region,
+        // _category,
+        // _description,
         _logo
         );
         groups.push(group);
