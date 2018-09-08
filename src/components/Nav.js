@@ -22,7 +22,7 @@ const StyledCol = styled(Col)`
 const StyledButton = styled(Button)`
   width: 100%;
   background: transparent;
-  color: ${({ current }) => current ? colors.white : colors.light };
+  color: ${({ current }) => current ? colors.white : colors.light};
   text-shadow: none;
   transition: all 0.1s ease;
   -webkit-transition: all 0.1s ease;
