@@ -9,7 +9,7 @@ import gql from 'graphql-tag';
 
 
 
-const GroupPageContainer = () => {
+const GroupPageContainer = ({error, loading, groupByEns}) => {
   return (
     <div>
       <Group name="Blockchain Berlin" memberCount="100" country="Germany" region="Berlin" category="Blockchain" isAdmin={false} isMember={true}/>
@@ -23,12 +23,28 @@ const GroupPageContainer = () => {
 
 export default GroupPageContainer;
 
-// const GroupByEnsQuery = gql`
-//   query groups( )
-// `
-// `
+const GroupByEnsQuery = gql`
+  query groupsByEns($ens: String!)  {
+      groups(where: {ens: $ens}) {
+          name
+          memberCount
+          country
+          region
+          category
+          events {
+              name
+              attendees
+              maxAttendees
+          }
+      }
+  }
+`;
 
-// export default compose(
-//   withApollo,
-//   graphql()
-// )(Group)
+
+
+export default compose(
+  withApollo,
+  graphql(GroupByEnsQuery, {
+
+  })
+)(GroupPageContainer)
