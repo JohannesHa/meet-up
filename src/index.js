@@ -5,7 +5,7 @@ import { DrizzleProvider } from 'drizzle-react'
 
 // Layouts
 import App from './App'
-import SearchContainer from './layouts/search/SearchContainer.js'
+import DiscoverSearchContainer from './components/DiscoverSearch/DiscoverSearchContainer';
 
 import LoadingContainer from './components/LoadingContainer.js'
 import Nav from './components/Nav.js'
@@ -20,7 +20,7 @@ ReactDOM.render((
           <div>
             <Switch>
               <Route exact path="/" component={App} />
-              <Route exact path="/search" component={SearchContainer} />
+              <Route exact path="/search" component={DiscoverSearchContainer} />
             </Switch>
             <Nav/>
           </div>
