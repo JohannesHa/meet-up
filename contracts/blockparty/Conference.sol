@@ -74,7 +74,7 @@ contract Conference is Destructible, GroupAdmin {
     ) public {
         require(_owner != 0x0, "Owner needs to be a valid address");
         owner = _owner;
-        
+
         if (bytes(_name).length != 0){
             name = _name;
         } else {
@@ -129,7 +129,6 @@ contract Conference is Destructible, GroupAdmin {
 
     /**
      * @dev The internal function to register participant
-     * @param _participant The twitter address of the participant
      */
     function registerInternal() internal {
         require(msg.value == deposit);
@@ -146,7 +145,7 @@ contract Conference is Destructible, GroupAdmin {
      */
     function withdraw() external onlyEnded{
         require(payoutAmount > 0);
-        Participant participant = participants[msg.sender];
+        Participant storage participant = participants[msg.sender];
         require(participant.addr == msg.sender);
         require(cancelled || participant.attended);
         require(participant.paid == false);
