@@ -8,10 +8,10 @@ export function handleJoinGroup(event: JoinGroup): void {
     let group = store.get('Group', groupId);
 
 
-    // let membersArray = group.get('members').toArray();
-    // membersArray.push(Value.fromString(userId));
-    //
-    // group.setArray('members', membersArray);
+    let membersArray = group.get('members').toArray();
+    membersArray.push(Value.fromString(userId));
+
+    group.setArray('members', membersArray);
 
 
     group.setU256('memberCount', event.params.memberCount);

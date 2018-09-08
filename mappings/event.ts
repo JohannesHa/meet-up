@@ -15,10 +15,10 @@ export function hanldeAttendEvent(event: RegisterEvent): void {
     eventEntity.setBoolean('isFull', event.params.isFull);
 
     // Add user to list of userIds attending event
-    // let eventAttendees = eventEntity.get('attendees').toArray();
-    //
-    // eventAttendees.push(Value.fromString(userId));
-    // eventEntity.setArray('attendees', eventAttendees);
+    let eventAttendees = eventEntity.get('attendees').toArray();
+
+    eventAttendees.push(Value.fromString(userId));
+    eventEntity.setArray('attendees', eventAttendees);
 
     store.set('User', userId, user);
     store.set('Event', eventId, eventEntity);
