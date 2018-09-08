@@ -54,9 +54,9 @@ class App extends Component {
           <Route exact path="/" component={HomeContainer} />
           <Route exact path="/search" component={DiscoverSearchContainer} />
           <Route exact path="/create" component={CreateGroupContainer} />
+          <Route exact path="/profile" component={ProfileContainer} />
           <Route path="*.meet-up.eth" component={GroupContainer} />
           <Route render={() => { <div>Not Found</div> }} />
-          <Route exact path="/profile" component={ProfileContainer} />
         </Switch>
         <ul>
           {console.log("tested Axios:" + this.state.testingAxios)}
