@@ -4,6 +4,8 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { colors } from '../styles.js'
 
+import Subtitle from './Subtitle.js'
+
 const StyledLoadingContainer = styled.main`
   background-color: ${colors.white};
   position: absolute;
@@ -12,8 +14,9 @@ const StyledLoadingContainer = styled.main`
   left:0;
   bottom:0;
   right:0;
-  width: 100px;
+  width: 400px;
   height: 40px;
+  text-align: center;
 `
 
 const StyledLoadingIndicatorContainer = styled.div`
@@ -29,8 +32,12 @@ const StyledLoadingIndicatorContainer = styled.div`
     width: 11px;
     height: 11px;
     border-radius: 50%;
-    background: ${colors.black};
+    background: ${({ color }) => color };
     animation-timing-function: cubic-bezier(0, 1, 1, 0);
+    transition: all 0.1s ease;
+    -webkit-transition: all 0.1s ease;
+    -moz-transition: all 0.1s ease;
+    -o-transition: all 0.1s ease;
   }
   .lds-ellipsis div:nth-child(1) {
     left: 6px;
@@ -105,8 +112,12 @@ class LoadingContainer extends Component {
         <StyledLoadingContainer className="container loading-screen">
           <div className="pure-g">
             <div className="pure-u-1-1">
-              <h1>🦊</h1>
-              <p><strong>We can't find any Ethereum accounts!</strong> Please check and make sure Metamask or your browser are pointed at the correct network and your account is unlocked.</p>
+              <StyledLoadingIndicatorContainer color={colors.metamask}>
+                <div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
+              </StyledLoadingIndicatorContainer>
+              <Subtitle>
+                Waiting for MetaMask...
+              </Subtitle>
             </div>
           </div>
         </StyledLoadingContainer>
@@ -123,9 +134,12 @@ class LoadingContainer extends Component {
       <StyledLoadingContainer className="container loading-screen">
         <div className="pure-g">
           <div className="pure-u-1-1">
-            <StyledLoadingIndicatorContainer>
+            <StyledLoadingIndicatorContainer color={colors.black}>
               <div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
             </StyledLoadingIndicatorContainer>
+            <Subtitle>
+              Loading dapp...
+            </Subtitle>
           </div>
         </div>
       </StyledLoadingContainer>
