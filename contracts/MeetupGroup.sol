@@ -15,7 +15,7 @@ contract MeetupGroup is Destructible {
     address[] public events;
     mapping (address => bool) public participants;
 
-    event CreateEvent(address groupId, address eventId, string name, string description, uint date, address userId);
+    event CreateEvent(address id, address groupId, string name, string description, uint date, address userId);
     event JoinGroup(address groupId, address userId, uint memberCount);
     event LeaveGroup(address groupId, address userId, uint memberCount);
 
@@ -115,7 +115,7 @@ contract MeetupGroup is Destructible {
             _geohash
         );
         events.push(conference);
-        emit CreateEvent(this, conference, _name, _description, _date, msg.sender);
+        emit CreateEvent(conference, this, _name, _description, _date, msg.sender);
     }
 
     /**
