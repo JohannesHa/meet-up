@@ -21,7 +21,8 @@ const styles = {
   h1Style: {
     color: '#ffffff',
     textAlign: 'center',
-    marginBottom: 80
+    marginBottom: 80,
+    fontWeight: 200,
   }
 };
 

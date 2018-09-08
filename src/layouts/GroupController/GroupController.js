@@ -4,6 +4,10 @@ import weirdPeopleLookingOnAScreenImage from '../../assets/weirdPeopleLookingOnA
 import codingMeetupImage from '../../assets/codingMeetup.jpg';
 import peopleChillingImage from '../../assets/peopleChilling.jpg';
 
+import Button from '../../components/Button.js';
+import Title from '../../components/Title.js';
+import Subtitle from '../../components/Subtitle.js';
+
 class GroupController extends Component {
     constructor(props, context) {
         super(props, context);
@@ -51,15 +55,15 @@ class GroupController extends Component {
                 <Grid style={styles.gridStyle}>
                     <Row style={styles.rowStyle}>
                         <Col xs={9} style={styles.colStyle}>
-                            <h2 style={styles.groupNameLabel}>ETH Berlin</h2>
-                            <label style={styles.groupLocationLabel}>Berlin, Germany</label>
+                            <Title style={styles.groupNameLabel}>ETH Berlin</Title>
+                            <Subtitle style={styles.groupLocationLabel}>Berlin, Germany</Subtitle>
                         </Col>
                         <Col xs={3} style={styles.colStyle}>
-                            <button
+                            <Button
                                 onClick={this.joinGroup}
                                 style={styles.joinButtonStyle}>
                                 Join
-                        </button>
+                            </Button>
                         </Col>
                     </Row>
                 </Grid>
@@ -70,12 +74,8 @@ class GroupController extends Component {
 
 const styles = {
     groupNameLabel: {
-        color: '#ffffff',
-        textAlign: 'left'
-    },
-    groupLocationLabel: {
-        fontSize: 12,
-        color: '#d3d3d3'
+        textAlign: 'left',
+        marginTop: 30
     },
     groupImageStyle: {
         borderRadius: 10
@@ -86,8 +86,8 @@ const styles = {
         borderWidth: 0,
         backgroundColor: '#7B40FF',
         width: 90,
-        height: 35,
-        color: '#ffffff'
+        color: '#ffffff',
+        float: 'right'
     },
     gridStyle: {
         paddingTop: 0,
