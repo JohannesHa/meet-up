@@ -8,6 +8,8 @@ import "../ownership/Ownable.sol";
  */
 contract Destructible is Ownable {
 
+    event DestroyEvent(address id);
+
     constructor() public payable { }
 
     /**
@@ -15,9 +17,11 @@ contract Destructible is Ownable {
     */
     function destroy() onlyOwner public {
         selfdestruct(owner);
+        emit DestroyEvent(this);
     }
 
     function destroyAndSend(address _recipient) onlyOwner public {
         selfdestruct(_recipient);
+        emit DestroyEvent(this);
     }
 }
