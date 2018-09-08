@@ -81,12 +81,6 @@ const styles = {
         borderRadius: 10
     },
     joinButtonStyle: {
-        marginTop: 30,
-        borderRadius: 3,
-        borderWidth: 0,
-        backgroundColor: '#7B40FF',
-        width: 90,
-        color: '#ffffff',
         float: 'right'
     },
     gridStyle: {
