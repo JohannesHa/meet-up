@@ -10,7 +10,7 @@ const StyledNav = styled(Row)`
   margin: 0;
   width: 100%;
   height: auto;
-  position: absolute;
+  position: fixed;
   bottom: 0;
   padding: 20px;
 `;

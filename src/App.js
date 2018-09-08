@@ -5,6 +5,7 @@ import axios from 'axios';
 import config from '../config';
 
 import DiscoverSearchContainer from './components/DiscoverSearch/DiscoverSearchContainer'
+import GroupContainer from './components/Group/GroupContainer'
 import CreateGroupContainer from './layouts/createGroup/CreateGroupContainer'
 
 // Styles
@@ -51,7 +52,9 @@ class App extends Component {
         <Switch>
           <Route exact path="/" component={HomeContainer} />
           <Route exact path="/search" component={DiscoverSearchContainer} />
-          <Route exact path="/group/create" component={CreateGroupContainer} />
+          <Route exact path="/create" component={CreateGroupContainer} />
+          <Route path="*.meet-up.eth" component={GroupContainer} />
+          <Route render={() => { <div>Not Found</div> }} />
         </Switch>
         <ul>
           {console.log("tested Axios:" + this.state.testingAxios)}

@@ -1,23 +1,27 @@
 /**
  * Created by will on 08/09/18.
  */
-import React from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { AccountData } from 'drizzle-react-components'
 
-const Group = ({name, memberCount, country, region, category, isAdmin, isMember}) => {
-  return (
-    <div></div>
-  )
-};
+import Header from '../Header'
+import Subheader from '../Subheader'
 
-Group.propTypes = {
-  name: PropTypes.string.isRequired,
-  memberCount: PropTypes.number.isRequired,
-  country: PropTypes.string.isRequired,
-  region: PropTypes.string.isRequired,
-  category: PropTypes.string.isRequired,
-  isAdmin: PropTypes.string.isRequired,
-  isMember: PropTypes.bool.isRequired
+class Group extends Component {
+
+  render() {
+    let ens = this.props.location.pathname.substring(1);
+    return (
+      <main className="container">
+        <div>
+          <Header>{ens}</Header>
+          <Subheader>This group doesn't exist</Subheader>
+        </div>
+      </main>
+    )
+  }
+
 };
 
 export default Group;

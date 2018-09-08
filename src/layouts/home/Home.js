@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import logo from '../../logo.png'
 import GroupContainer from '../group/GroupContainer';
 
 import Nav from '../../components/Nav.js'
