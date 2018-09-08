@@ -3,12 +3,13 @@
  */
 import React from 'react';
 import CategoryList from '../CategoryList/CategoryListContainer';
+import Header from '../Header.js'
 
-const CategorySearch = ({onSelectCategory}) => {
+const CategorySearch = ({ onSelectCategory }) => {
   return (
     <div>
-      <h2>Pick a category</h2>
-      <CategoryList onSelectCategory={onSelectCategory}/>
+      <Header style={{marginTop: 50}}>Pick a category</Header>
+      <CategoryList onSelectCategory={onSelectCategory} />
     </div>
   )
 };

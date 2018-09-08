@@ -124,9 +124,8 @@ ul li:not(:last-child) {
 }
 
 .dropdown-country {
-  background-color: #ffffff;
-  margin-bottom: 20;
-  padding-bottom: 20;
+  width: 100%;
+  margin-bottom: 20px;
 }
 
 .qr-code-card {
