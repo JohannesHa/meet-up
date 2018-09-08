@@ -14,19 +14,20 @@ contract Conference is Destructible, GroupAdmin {
     uint public endedAt;
     uint public coolingPeriod;
     uint256 public payoutAmount;
-    string public encryption;
+    string public description;
+    uint public date;
+    bytes8 public geohash;
 
     mapping (address => Participant) public participants;
     mapping (uint => address) public participantsIndex;
 
     struct Participant {
-        string participantName;
         address addr;
         bool attended;
         bool paid;
     }
 
-    event RegisterEvent(address addr, string participantName, string _encryption);
+    event RegisterEvent(address addr);
     event AttendEvent(address addr);
     event PaybackEvent(uint256 _payout);
     event WithdrawEvent(address addr, uint256 _payout);
@@ -56,19 +57,23 @@ contract Conference is Destructible, GroupAdmin {
      * @param _deposit The amount each participant deposits. The default is set to 0.02 Ether. The amount cannot be changed once deployed.
      * @param _limitOfParticipants The number of participant. The default is set to 20. The number can be changed by the owner of the event.
      * @param _coolingPeriod The period participants should withdraw their deposit after the event ends. After the cooling period, the event owner can claim the remining deposits.
-     * @param _encryption A pubic key. The admin can use this public key to encrypt pariticipant username which is stored in event. The admin can later decrypt the name using his/her private key.
+     * @param _description Desciption of the event
+     * @param _date Timestamp of the event
+     * @param _geohash Geohash of the event
      */
     constructor (
         string _name,
         uint256 _deposit,
         uint _limitOfParticipants,
         uint _coolingPeriod,
-        string _encryption
+        string _description,
+        uint _date,
+        bytes8 _geohash
     ) public {
         if (bytes(_name).length != 0){
             name = _name;
         } else {
-            name = 'Test';
+            name = "Test";
         }
 
         if(_deposit != 0){
@@ -89,42 +94,45 @@ contract Conference is Destructible, GroupAdmin {
             coolingPeriod = 1 weeks;
         }
 
-        if (bytes(_encryption).length != 0) {
-            encryption = _encryption;
+        if (bytes(_description).length != 0) {
+            description = _description;
+        } else {
+            description = "Test";
+        }
+
+        if (_date != 0) {
+            date = _date;
+        } else {
+            date = block.timestamp;
+        }
+
+        if (_geohash.length != 0) {
+            geohash = _geohash;
+        } else {
+            geohash = 0x0;
         }
     }
 
     /**
-     * @dev Registers with twitter name and full user name (the user name is encrypted).
-     * @param _participant The twitter address of the participant
-     * @param _encrypted The encrypted participant name
+     * @dev Registers message sender.
      */
-    function registerWithEncryption(string _participant, string _encrypted) external payable onlyActive{
-        registerInternal(_participant);
-        emit RegisterEvent(msg.sender, _participant, _encrypted);
-    }
-
-    /**
-     * @dev Registers with twitter name.
-     * @param _participant The twitter address of the participant
-     */
-    function register(string _participant) external payable onlyActive{
-        registerInternal(_participant);
-        emit RegisterEvent(msg.sender, _participant, '');
+    function register() external payable onlyActive{
+        registerInternal();
+        emit RegisterEvent(msg.sender);
     }
 
     /**
      * @dev The internal function to register participant
      * @param _participant The twitter address of the participant
      */
-    function registerInternal(string _participant) internal {
+    function registerInternal() internal {
         require(msg.value == deposit);
         require(registered < limitOfParticipants);
         require(!isRegistered(msg.sender));
 
         registered++;
         participantsIndex[registered] = msg.sender;
-        participants[msg.sender] = Participant(_participant, msg.sender, false, false);
+        participants[msg.sender] = Participant(msg.sender, false, false);
     }
 
     /**
