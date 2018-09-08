@@ -1,23 +1,23 @@
 pragma solidity 0.4.24;
 
-import "./zeppelin/ownership/Ownable.sol";
 import "./zeppelin/lifecycle/Destructible.sol";
 import "./blockparty/Conference.sol";
 
-contract MeetupGroup is Ownable, Destructible {
+contract MeetupGroup is Destructible {
     string public name;
     string public ens;
     bytes8 public geohash;
     string public category;
     string public description;
     bytes public logo;
+    uint public memberCount;
 
     address[] public events;
     mapping (address => bool) public participants;
 
     event CreateEvent(address groupId, address eventId, string name, string description, uint date, address userId);
-    event JoinGroup(address groupId, address userId);
-    event LeaveGroup(address groupId, address userId);
+    event JoinGroup(address groupId, address userId, uint memberCount);
+    event LeaveGroup(address groupId, address userId, uint memberCount);
 
 
     /* Public functions */
@@ -123,7 +123,8 @@ contract MeetupGroup is Ownable, Destructible {
      */
     function joinGroup () public {
         participants[msg.sender] = true;
-        emit JoinGroup(this, msg.sender);
+        memberCount++;
+        emit JoinGroup(this, msg.sender, memberCount);
     }
 
     /**
@@ -131,6 +132,7 @@ contract MeetupGroup is Ownable, Destructible {
      */
     function leaveGroup () public {
         participants[msg.sender] = false;
-        emit LeaveGroup(this, msg.sender);
+        memberCount--;
+        emit LeaveGroup(this, msg.sender, memberCount);
     }
 }
