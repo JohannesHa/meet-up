@@ -51,12 +51,12 @@ const StyledButton = styled(Button)`
 const Nav = ({ current, ...props }) => (
   <StyledNav {...props}>
     <StyledCol xs={3}>
-      <StyledButton current>
+      <StyledButton href="/">
         <Glyphicon glyph="home" />
       </StyledButton>
     </StyledCol>
     <StyledCol xs={3}>
-      <StyledButton>
+      <StyledButton href="/search">
         <Glyphicon glyph="search" />
       </StyledButton>
     </StyledCol>
