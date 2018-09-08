@@ -22,7 +22,7 @@ const StyledCol = styled(Col)`
 const StyledButton = styled(Button)`
   width: 100%;
   background: transparent;
-  color: ${colors.white}
+  color: ${({ current }) => current ? colors.white : colors.light };
   text-shadow: none;
   transition: all 0.1s ease;
   -webkit-transition: all 0.1s ease;
@@ -39,7 +39,7 @@ const StyledButton = styled(Button)`
 
   &:active {
     background-color: transparent !important;
-    color: ${colors.status} !important;
+    color: ${colors.white} !important;
   }
 
   &:focus {
@@ -48,38 +48,24 @@ const StyledButton = styled(Button)`
   }
 `
 
-const StyledPlusButton = styled(StyledButton)`
-  background-color: ${colors.dark} !important;
-  font-size: auto;
-
-  &:active {
-    background-color: ${colors.dark} !important;
-  }
-`
-
 const Nav = ({ current, ...props }) => (
   <StyledNav {...props}>
-    <StyledCol xs={2}>
-      <StyledButton>
+    <StyledCol xs={3}>
+      <StyledButton current>
         <Glyphicon glyph="home" />
       </StyledButton>
     </StyledCol>
-    <StyledCol xs={2}>
-      <StyledButton>
-        <Glyphicon glyph="globe" />
-      </StyledButton>
-    </StyledCol>
-    <StyledCol xs={4}>
-      <StyledPlusButton>
-        <Glyphicon glyph="plus" />
-      </StyledPlusButton>
-    </StyledCol>
-    <StyledCol xs={2}>
+    <StyledCol xs={3}>
       <StyledButton>
         <Glyphicon glyph="search" />
       </StyledButton>
     </StyledCol>
-    <StyledCol xs={2}>
+    <StyledCol xs={3}>
+      <StyledButton>
+        <Glyphicon glyph="plus" />
+      </StyledButton>
+    </StyledCol>
+    <StyledCol xs={3}>
       <StyledButton>
         <Glyphicon glyph="user" />
       </StyledButton>
