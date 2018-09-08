@@ -5,7 +5,6 @@ import "./blockparty/Conference.sol";
 
 contract MeetupGroup is Destructible {
     string public name;
-    string public ens;
     bytes8 public geohash;
     string public category;
     string public description;
@@ -71,18 +70,6 @@ contract MeetupGroup is Destructible {
         } else {
             logo = "0x0";
         } 
-    }
-
-    /**
-     * @dev Adds ENS to the contract
-     * @param _ens ENS string of meetup
-     */
-    function addENS(string _ens) public {
-        if (bytes(_ens).length != 0){
-            ens = _ens;
-        } else {
-            ens = "test.example.eth";
-        }
     }
 
     /**
