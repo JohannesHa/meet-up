@@ -53,6 +53,7 @@ contract Conference is Destructible, GroupAdmin {
     /* Public functions */
     /**
      * @dev Construcotr.
+     * @param _owner Address of the owner of the event, group admin
      * @param _name The name of the event
      * @param _deposit The amount each participant deposits. The default is set to 0.02 Ether. The amount cannot be changed once deployed.
      * @param _limitOfParticipants The number of participant. The default is set to 20. The number can be changed by the owner of the event.
@@ -62,6 +63,7 @@ contract Conference is Destructible, GroupAdmin {
      * @param _geohash Geohash of the event
      */
     constructor (
+        address _owner,
         string _name,
         uint256 _deposit,
         uint _limitOfParticipants,
@@ -70,6 +72,9 @@ contract Conference is Destructible, GroupAdmin {
         uint _date,
         bytes8 _geohash
     ) public {
+        require(_owner != 0x0, "Owner needs to be a valid address");
+        owner = _owner;
+        
         if (bytes(_name).length != 0){
             name = _name;
         } else {
@@ -260,7 +265,7 @@ contract Conference is Destructible, GroupAdmin {
         }
     }
 
-    function isFull() private view returns(bool) {
+    function isFull() public view returns(bool) {
         if (registered < limitOfParticipants) {
             return false;
         } else {

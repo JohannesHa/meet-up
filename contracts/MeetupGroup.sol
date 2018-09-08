@@ -95,7 +95,7 @@ contract MeetupGroup is Ownable, Destructible {
      * @param _date Timestamp of the event
      * @param _geohash Geohash of the event
      */
-    function createEvent(
+    function createEvent (
         string _name,
         uint256 _deposit,
         uint _limitOfParticipants,
@@ -105,6 +105,7 @@ contract MeetupGroup is Ownable, Destructible {
         bytes8 _geohash
     ) public onlyOwner {
         address conference = new Conference(
+            msg.sender,
             _name,
             _deposit,
             _limitOfParticipants,
