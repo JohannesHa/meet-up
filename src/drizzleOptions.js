@@ -1,4 +1,4 @@
-import MeetupGroupFactory from './../build/contracts/GroupFactory.json'
+import GroupFactory from './../build/contracts/GroupFactory.json'
 
 const drizzleOptions = {
   web3: {
@@ -9,7 +9,7 @@ const drizzleOptions = {
     }
   },
   contracts: [
-    MeetupGroupFactory,
+    GroupFactory,
   ],
   events: {
     CreateGroup: ['StorageSet']

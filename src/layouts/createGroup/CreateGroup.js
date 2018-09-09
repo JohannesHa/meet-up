@@ -104,7 +104,7 @@ class CreateGroup extends Component {
     handleCreateMeetup(e) {
         e.preventDefault();
         // Link backend
-        this.contracts.MeetupGroupFactory.methods.createGroup(this.state.groupName, this.state.groupLocation, 'Berlin', 'Blockchain',
+        this.contracts.GroupFactory.methods.createGroup(this.state.groupName, this.state.groupLocation, 'Berlin', 'Blockchain',
           this.state.groupDescription, web3.utils.asciiToHex("asdasd")).call(
            {from: this.props.accounts[0]}).then(response => {
                console.log(this.props.history.push(response));

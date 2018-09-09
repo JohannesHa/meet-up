@@ -5,7 +5,7 @@ import { drizzleConnect } from 'drizzle-react'
 const mapStateToProps = state => {
   return {
     accounts: state.accounts,
-    MeetupGroupFactory: state.contracts.MeetupGroupFactory,
+    GroupFactory: state.contracts.GroupFactory,
     // EnsDomain
     drizzleStatus: state.drizzleStatus
   }
