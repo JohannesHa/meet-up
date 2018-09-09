@@ -1,0 +1,48 @@
+scalar Date
+
+type Group @entity {
+    name: String!
+    ens: String!
+    events: [Event!] @derivedFrom(field: "group")
+    admin: User!
+    description: String
+    logo: String
+    members: [User!]
+    memberCount: BigInt!
+    country: String!
+    region: String!
+    category: EventCategory
+}
+
+type Event @entity {
+    address: Bytes!
+    name: String!
+    maxAttendees: BigInt!
+    description: String!
+    depositAmount: BigInt!
+    attendees: [User!]
+    attendeeCount: BigInt!
+    isFull: Boolean!
+    coolingPeriod: BigInt!
+    eventDate: String!
+    creator: User!
+    group: Group!
+}
+
+
+type User @entity {
+    address: Bytes!
+    adminGroups: [Group!] @derivedFrom(field: "admin")
+    memberGroups: [Group!] @derivedFrom(field: "members")
+    upcomingEvents: [Event!] @derivedFrom(field: "attendees")
+}
+
+enum EventCategory {
+    technology
+    science
+    art
+    history
+    games
+    fun
+    food
+}

@@ -25,19 +25,19 @@
   "sourceMap": "",
   "deployedSourceMap": "",
   "source": "pragma solidity ^0.4.23;\n\n/**\n* @title EnsResolver\n* @dev Extract of the interface for ENS Resolver\n*/\ncontract EnsResolver {\n    function setAddr(bytes32 node, address addr) public;\n}",
-  "sourcePath": "/Users/jackleslie/Desktop/Hackathons/meet-up/contracts/radek1st/EnsResolver.sol",
+  "sourcePath": "/Users/dominikdnd/Desktop/ETHBerlin/meetup/meet-up/contracts/radek1st/EnsResolver.sol",
   "ast": {
-    "absolutePath": "/Users/jackleslie/Desktop/Hackathons/meet-up/contracts/radek1st/EnsResolver.sol",
+    "absolutePath": "/Users/dominikdnd/Desktop/ETHBerlin/meetup/meet-up/contracts/radek1st/EnsResolver.sol",
     "exportedSymbols": {
       "EnsResolver": [
-        1377
+        1238
       ]
     },
-    "id": 1378,
+    "id": 1239,
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 1369,
+        "id": 1230,
         "literals": [
           "solidity",
           "^",
@@ -53,9 +53,9 @@
         "contractKind": "contract",
         "documentation": "@title EnsResolver\n@dev Extract of the interface for ENS Resolver",
         "fullyImplemented": false,
-        "id": 1377,
+        "id": 1238,
         "linearizedBaseContracts": [
-          1377
+          1238
         ],
         "name": "EnsResolver",
         "nodeType": "ContractDefinition",
@@ -63,7 +63,7 @@
           {
             "body": null,
             "documentation": null,
-            "id": 1376,
+            "id": 1237,
             "implemented": false,
             "isConstructor": false,
             "isDeclaredConst": false,
@@ -71,15 +71,15 @@
             "name": "setAddr",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 1374,
+              "id": 1235,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 1371,
+                  "id": 1232,
                   "name": "node",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1376,
+                  "scope": 1237,
                   "src": "147:12:7",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -88,7 +88,7 @@
                     "typeString": "bytes32"
                   },
                   "typeName": {
-                    "id": 1370,
+                    "id": 1231,
                     "name": "bytes32",
                     "nodeType": "ElementaryTypeName",
                     "src": "147:7:7",
@@ -102,10 +102,10 @@
                 },
                 {
                   "constant": false,
-                  "id": 1373,
+                  "id": 1234,
                   "name": "addr",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1376,
+                  "scope": 1237,
                   "src": "161:12:7",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -114,7 +114,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 1372,
+                    "id": 1233,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "161:7:7",
@@ -131,36 +131,36 @@
             },
             "payable": false,
             "returnParameters": {
-              "id": 1375,
+              "id": 1236,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "181:0:7"
             },
-            "scope": 1377,
+            "scope": 1238,
             "src": "130:52:7",
             "stateMutability": "nonpayable",
             "superFunction": null,
             "visibility": "public"
           }
         ],
-        "scope": 1378,
+        "scope": 1239,
         "src": "103:81:7"
       }
     ],
     "src": "0:184:7"
   },
   "legacyAST": {
-    "absolutePath": "/Users/jackleslie/Desktop/Hackathons/meet-up/contracts/radek1st/EnsResolver.sol",
+    "absolutePath": "/Users/dominikdnd/Desktop/ETHBerlin/meetup/meet-up/contracts/radek1st/EnsResolver.sol",
     "exportedSymbols": {
       "EnsResolver": [
-        1377
+        1238
       ]
     },
-    "id": 1378,
+    "id": 1239,
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 1369,
+        "id": 1230,
         "literals": [
           "solidity",
           "^",
@@ -176,9 +176,9 @@
         "contractKind": "contract",
         "documentation": "@title EnsResolver\n@dev Extract of the interface for ENS Resolver",
         "fullyImplemented": false,
-        "id": 1377,
+        "id": 1238,
         "linearizedBaseContracts": [
-          1377
+          1238
         ],
         "name": "EnsResolver",
         "nodeType": "ContractDefinition",
@@ -186,7 +186,7 @@
           {
             "body": null,
             "documentation": null,
-            "id": 1376,
+            "id": 1237,
             "implemented": false,
             "isConstructor": false,
             "isDeclaredConst": false,
@@ -194,15 +194,15 @@
             "name": "setAddr",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 1374,
+              "id": 1235,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 1371,
+                  "id": 1232,
                   "name": "node",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1376,
+                  "scope": 1237,
                   "src": "147:12:7",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -211,7 +211,7 @@
                     "typeString": "bytes32"
                   },
                   "typeName": {
-                    "id": 1370,
+                    "id": 1231,
                     "name": "bytes32",
                     "nodeType": "ElementaryTypeName",
                     "src": "147:7:7",
@@ -225,10 +225,10 @@
                 },
                 {
                   "constant": false,
-                  "id": 1373,
+                  "id": 1234,
                   "name": "addr",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1376,
+                  "scope": 1237,
                   "src": "161:12:7",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -237,7 +237,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 1372,
+                    "id": 1233,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "161:7:7",
@@ -254,19 +254,19 @@
             },
             "payable": false,
             "returnParameters": {
-              "id": 1375,
+              "id": 1236,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "181:0:7"
             },
-            "scope": 1377,
+            "scope": 1238,
             "src": "130:52:7",
             "stateMutability": "nonpayable",
             "superFunction": null,
             "visibility": "public"
           }
         ],
-        "scope": 1378,
+        "scope": 1239,
         "src": "103:81:7"
       }
     ],
@@ -277,6 +277,6 @@
     "version": "0.4.24+commit.e67f0147.Emscripten.clang"
   },
   "networks": {},
-  "schemaVersion": "3.0.0-beta.0",
-  "updatedAt": "2018-09-08T13:10:59.743Z"
+  "schemaVersion": "2.0.1",
+  "updatedAt": "2018-09-09T05:32:31.691Z"
 }

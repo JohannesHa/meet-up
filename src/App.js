@@ -8,6 +8,7 @@ import DiscoverSearchContainer from './components/DiscoverSearch/DiscoverSearchC
 import GroupContainer from './components/Group/GroupContainer'
 import CreateGroupContainer from './layouts/createGroup/CreateGroupContainer'
 import ProfileContainer from './components/Profile/ProfileContainer';
+import IntroContainer from './layouts/intro/IntroContainer';
 
 // Styles
 import './css/roboto.css'
@@ -54,6 +55,7 @@ class App extends Component {
       <div className="App">
         <Switch>
           <Route exact path="/" component={HomeContainer} />
+          <Route exact path="/intro" component={IntroContainer} />
           <Route exact path="/search" component={DiscoverSearchContainer} />
           <Route exact path="/create" component={CreateGroupContainer} />
           <Route exact path="/profile" component={ProfileContainer} />
