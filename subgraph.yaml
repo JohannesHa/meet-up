@@ -5,7 +5,7 @@ dataSources:
 - kind: ethereum/contract
   name: MeetupGroupFactory
   source:
-    address: '8dbc6071711d4c1bbc46be51411669e0684fc490'
+    address: 'c0e48F89ed35b8413441f0921D819da0a91D8913'
     abi: MeetupGroupFactory
   mapping:
     kind: ethereum/events
@@ -27,7 +27,7 @@ dataSources:
 - kind: ethereum/contract
   name: MeetupGroup
   source:
-    address: 'f87e31492faf9a91b02ee0deaad50d51d56d5d4d'
+    address: 'c0e48F89ed35b8413441f0921D819da0a91D8913'
     abi: MeetupGroup
   mapping:
     kind: ethereum/events
@@ -52,7 +52,7 @@ dataSources:
 - kind: ethereum/contract
   name: Conference
   source:
-    address: "f87e31492faf9a91b02ee0deaad50d51d56d5d4d"
+    address: "c0e48F89ed35b8413441f0921D819da0a91D8913"
     abi: Conference
   mapping:
     kind: ethereum/events
@@ -72,7 +72,7 @@ dataSources:
 - kind: ethereum/contract
   name: EnsSubdomainFactory
   source:
-    address: "f87e31492faf9a91b02ee0deaad50d51d56d5d4d"
+    address: "c0e48F89ed35b8413441f0921D819da0a91D8913"
     abi: EnsSubdomainFactory
   mapping:
     kind: ethereum/events
