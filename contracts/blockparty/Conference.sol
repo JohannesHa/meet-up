@@ -1,4 +1,4 @@
-pragma solidity 0.4.24;
+pragma solidity 0.4.21;
 
 import "./GroupAdmin.sol";
 import "../zeppelin/lifecycle/Destructible.sol";
@@ -7,7 +7,7 @@ contract Conference is Destructible, GroupAdmin {
     // string public name;
     uint256 public deposit;
     uint public limitOfParticipants;
-    uint public attendeeCount;
+    uint public registered;
     uint public attended;
     bool public ended;
     bool public cancelled;
@@ -27,7 +27,7 @@ contract Conference is Destructible, GroupAdmin {
         bool paid;
     }
 
-    event RegisterEvent(address id, address userId, uint attendeeCount, bool isFull);
+    event RegisterEvent(address addr, uint registered, uint limitOfParticipants, bool isFull);
     event AttendEvent(address addr);
     event PaybackEvent(uint256 _payout);
     event WithdrawEvent(address addr, uint256 _payout);
@@ -42,7 +42,7 @@ contract Conference is Destructible, GroupAdmin {
     }
 
     modifier noOneRegistered {
-        require(attendeeCount == 0);
+        require(registered == 0);
         _;
     }
 
@@ -59,7 +59,7 @@ contract Conference is Destructible, GroupAdmin {
      * @param _limitOfParticipants The number of participant. The default is set to 20. The number can be changed by the owner of the event.
      * @param _coolingPeriod The period participants should withdraw their deposit after the event ends. After the cooling period, the event owner can claim the remining deposits.
      */
-    constructor (
+    function Conference (
         address _owner,
         // string _name,
         uint256 _deposit,
@@ -69,7 +69,8 @@ contract Conference is Destructible, GroupAdmin {
         // uint _date,
         // bytes8 _geohash
     ) public {
-        require(_owner != 0x0, "Owner needs to be a valid address");
+        require(_owner != 0x0);
+        
         owner = _owner;
 
         // if (bytes(_name).length != 0){
@@ -121,7 +122,7 @@ contract Conference is Destructible, GroupAdmin {
     function register() external payable onlyActive{
         registerInternal();
         bool full = isFull();
-        emit RegisterEvent(this, msg.sender, attendeeCount, full);
+        emit RegisterEvent(msg.sender, registered, limitOfParticipants, full);
     }
 
     /**
@@ -129,11 +130,11 @@ contract Conference is Destructible, GroupAdmin {
      */
     function registerInternal() internal {
         require(msg.value == deposit);
-        require(attendeeCount < limitOfParticipants);
+        require(registered < limitOfParticipants);
         require(!isRegistered(msg.sender));
 
-        attendeeCount++;
-        participantsIndex[attendeeCount] = msg.sender;
+        registered++;
+        participantsIndex[registered] = msg.sender;
         participants[msg.sender] = Participant(msg.sender, false, false);
     }
 
@@ -244,7 +245,7 @@ contract Conference is Destructible, GroupAdmin {
      */
     function changeName(string _name) external onlyOwner noOneRegistered{
         // name = _name;
-        require(bytes(_name).length > 0, "New name needs to exist");
+        require(bytes(_name).length > 0);
         emit ChangeNameEvent(_name);
     }
 
@@ -264,7 +265,7 @@ contract Conference is Destructible, GroupAdmin {
     }
 
     function isFull() public view returns(bool) {
-        if (attendeeCount < limitOfParticipants) {
+        if (registered < limitOfParticipants) {
             return false;
         } else {
             return true;
