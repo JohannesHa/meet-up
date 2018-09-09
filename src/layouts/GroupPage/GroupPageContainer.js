@@ -23,28 +23,34 @@ const GroupPageContainer = ({error, loading, groupByEns}) => {
 
 export default GroupPageContainer;
 
-const GroupByEnsQuery = gql`
-  query groupsByEns($ens: String!)  {
-      groups(where: {ens: $ens}) {
-          name
-          memberCount
-          country
-          region
-          category
-          events {
-              name
-              attendees
-              maxAttendees
-          }
-      }
-  }
-`;
 
-
-
-export default compose(
-  withApollo,
-  graphql(GroupByEnsQuery, {
-
-  })
-)(GroupPageContainer)
+// GraphQL query by id (Group address in url)
+// const GroupByEnsQuery = gql`
+//   query groupByID($id: String!)  {
+//       group(id: $id}) {
+//           name
+//           memberCount
+//           country
+//           region
+//           category
+//           events {
+//               name
+//               attendees
+//               maxAttendees
+//           }
+//       }
+//   }
+// `;
+//
+//
+//
+// export default compose(
+//   withApollo,
+//   graphql(GroupByEnsQuery, {
+//     options: (props) => ({
+//       variables: {
+//         id: props.location.pathname
+//       }
+//     }),
+//   })
+// )(GroupPageContainer)
