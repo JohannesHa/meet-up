@@ -117,4 +117,4 @@ contract EnsSubdomainFactory is Ownable{
 		emit ResolverUpdated(resolver, _resolver);
 		resolver = _resolver;
 	}
-
+}
