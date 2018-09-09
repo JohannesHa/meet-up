@@ -1,9 +1,9 @@
-pragma solidity 0.4.24;
+pragma solidity 0.4.21;
 
 import "./MeetupGroup.sol";
 import "./zeppelin/ownership/Ownable.sol";
 
-contract MeetupGroupFactory is Ownable {
+contract GroupFactory is Ownable {
 
     address[] public groups;
 
@@ -21,7 +21,6 @@ contract MeetupGroupFactory is Ownable {
     /**
      *@dev Constructor 
      */
-    constructor() public {}
     /**
      * @dev Create Group.
      * @param _name The name of the meetup group
@@ -38,11 +37,11 @@ contract MeetupGroupFactory is Ownable {
         string _category,
         string _description,
         bytes _logo
-    ) public returns(address) {
-        require(bytes(_name).length > 0, "Name has to exist");
-        require(bytes(_country).length > 0, "Country has to exist");
-        require(bytes(_region).length > 0, "Region has to exist");
-        require(bytes(_category).length > 0, "Category has to exist");
+    ) public {
+        require(bytes(_name).length > 0);
+        require(bytes(_country).length > 0);
+        require(bytes(_region).length > 0);
+        require(bytes(_category).length > 0);
         address group = new MeetupGroup(
         msg.sender,
         // _name,
@@ -55,6 +54,5 @@ contract MeetupGroupFactory is Ownable {
         groups.push(group);
 
         emit CreateGroup(group, msg.sender, _name, _description, _country, _region, _category);
-        return (group);
     }
 }

@@ -1,4 +1,4 @@
-pragma solidity 0.4.24;
+pragma solidity 0.4.21;
 
 import "./zeppelin/lifecycle/Destructible.sol";
 import "./blockparty/Conference.sol";
@@ -37,7 +37,7 @@ contract MeetupGroup is Destructible {
      * @param _logo IPFS link
      
      */
-    constructor (
+    function MeetupGroup (
         address _owner,
         // string _name,
         // string _country,
@@ -46,7 +46,7 @@ contract MeetupGroup is Destructible {
         // string _description,
         bytes _logo
     ) public {
-        require(_owner != 0x0, "Owner needs to be a valid address");
+        require(_owner != 0x0);
         owner = _owner;
 
         // if (bytes(_name).length != 0){
@@ -108,9 +108,9 @@ contract MeetupGroup is Destructible {
         uint _date,
         bytes8 _geohash
     ) public onlyOwner {
-        require(bytes(_name).length > 0, "Name has to exist");
-        require(_date > 0, "Date has to exist");
-        require(_geohash > 0, "Geohash has to exist");
+        require(bytes(_name).length > 0);
+        require(_date > 0);
+        require(_geohash > 0);
         address conference = new Conference(
             msg.sender,
             // _name,
