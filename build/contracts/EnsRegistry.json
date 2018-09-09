@@ -84,9 +84,9 @@
   "sourceMap": "",
   "deployedSourceMap": "",
   "source": "pragma solidity ^0.4.23;\n\n/**\n* @title EnsRegistry\n* @dev Extract of the interface for ENS Registry\n*/\ncontract EnsRegistry {\n    function setOwner(bytes32 node, address owner) public;\n    function setSubnodeOwner(bytes32 node, bytes32 label, address owner) public;\n    function setResolver(bytes32 node, address resolver) public;\n    function owner(bytes32 node) public view returns (address);\n}",
-  "sourcePath": "/Users/dominikdnd/Desktop/ETHBerlin/meetup/meet-up/contracts/radek1st/EnsRegistry.sol",
+  "sourcePath": "/Users/jackleslie/Desktop/Hackathons/meet-up/contracts/radek1st/EnsRegistry.sol",
   "ast": {
-    "absolutePath": "/Users/dominikdnd/Desktop/ETHBerlin/meetup/meet-up/contracts/radek1st/EnsRegistry.sol",
+    "absolutePath": "/Users/jackleslie/Desktop/Hackathons/meet-up/contracts/radek1st/EnsRegistry.sol",
     "exportedSymbols": {
       "EnsRegistry": [
         1152
@@ -482,7 +482,7 @@
     "src": "0:396:5"
   },
   "legacyAST": {
-    "absolutePath": "/Users/dominikdnd/Desktop/ETHBerlin/meetup/meet-up/contracts/radek1st/EnsRegistry.sol",
+    "absolutePath": "/Users/jackleslie/Desktop/Hackathons/meet-up/contracts/radek1st/EnsRegistry.sol",
     "exportedSymbols": {
       "EnsRegistry": [
         1152
@@ -882,6 +882,6 @@
     "version": "0.4.24+commit.e67f0147.Emscripten.clang"
   },
   "networks": {},
-  "schemaVersion": "2.0.1",
-  "updatedAt": "2018-09-09T05:32:31.686Z"
+  "schemaVersion": "3.0.0-beta.0",
+  "updatedAt": "2018-09-09T07:48:50.001Z"
 }
