@@ -3,3 +3,6 @@ config.js
 /node_modules
 /build
 /build_webpack
+.vscode
+.venv
+.ipynb_checkpoints
