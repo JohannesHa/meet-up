@@ -2,11 +2,13 @@ import React, { Component } from 'react'
 import { Route, Switch } from 'react-router'
 import HomeContainer from './layouts/home/HomeContainer'
 import axios from 'axios';
-import config from '../config';
+//import config from '../config';
 
 import DiscoverSearchContainer from './components/DiscoverSearch/DiscoverSearchContainer'
 import GroupContainer from './components/Group/GroupContainer'
 import CreateGroupContainer from './layouts/createGroup/CreateGroupContainer'
+import ProfileContainer from './components/Profile/ProfileContainer';
+import IntroContainer from './layouts/intro/IntroContainer';
 
 // Styles
 import './css/roboto.css'
@@ -26,6 +28,7 @@ class App extends Component {
 
 
   componentDidMount() {
+    /*
     var pinata_api_key = config.pinata_api_key;
     var pinata_secret_api_key = config.pinata_secret_api_key;
 
@@ -44,6 +47,7 @@ class App extends Component {
         //handle error here
         console.log("Error: " + error)
       });
+      */
   }
 
   render() {
@@ -51,8 +55,10 @@ class App extends Component {
       <div className="App">
         <Switch>
           <Route exact path="/" component={HomeContainer} />
+          <Route exact path="/intro" component={IntroContainer} />
           <Route exact path="/search" component={DiscoverSearchContainer} />
           <Route exact path="/create" component={CreateGroupContainer} />
+          <Route exact path="/profile" component={ProfileContainer} />
           <Route path="*.meet-up.eth" component={GroupContainer} />
           <Route render={() => { <div>Not Found</div> }} />
         </Switch>

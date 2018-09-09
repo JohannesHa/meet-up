@@ -5,7 +5,7 @@ import React from 'react';
 import CategoryList from './CategoryList';
 
 const CategoryListContainer = ({onSelectCategory}) => {
-  return <CategoryList categories={['Blockchain', 'Art', 'Walking', 'Sport']} onSelectCategory={onSelectCategory}/>
+  return <CategoryList categories={['Blockchain', 'Art', 'Running', 'Sport', 'Drinking']} onSelectCategory={onSelectCategory}/>
 };
 
 export default CategoryListContainer;

@@ -31,6 +31,24 @@ class Group extends Component {
         console.log("user wants to join group");
     }
 
+    groupGrid(groupName, groupLocation) {
+        return (<Grid style={styles.gridStyle}>
+            <Row style={styles.rowStyle}>
+                <Col xs={9} style={styles.colStyle}>
+                    <Title style={styles.groupNameLabel}>{groupName}</Title>
+                    <Subtitle style={styles.groupLocationLabel}>{groupLocation}</Subtitle>
+                </Col>
+                <Col xs={3} style={styles.colStyle}>
+                    <Button
+                        onClick={this.joinGroup}
+                        style={styles.joinButtonStyle}>
+                        Join
+                            </Button>
+                </Col>
+            </Row>
+        </Grid>);
+    }
+
     render() {
 
         const { index, direction } = this.state;
@@ -44,29 +62,18 @@ class Group extends Component {
                     indicators={false}>
                     <Carousel.Item>
                         <img style={styles.groupImageStyle} width={900} height={500} alt="900x500" src={codingMeetupImage} />
+                        {this.groupGrid("ETHBerlin", "Berlin, Germany")}
                     </Carousel.Item>
                     <Carousel.Item>
                         <img style={styles.groupImageStyle} width={900} height={500} src={weirdPeopleLookingOnAScreenImage} />
+                        {this.groupGrid("LedgerZ", "Berlin, Germany")}
                     </Carousel.Item>
                     <Carousel.Item>
                         <img style={styles.groupImageStyle} width={900} height={500} alt="900x500" src={peopleChillingImage} />
+                        {this.groupGrid("Base58", "Berlin, Germany")}
                     </Carousel.Item>
                 </Carousel>
-                <Grid style={styles.gridStyle}>
-                    <Row style={styles.rowStyle}>
-                        <Col xs={9} style={styles.colStyle}>
-                            <Title style={styles.groupNameLabel}>ETH Berlin</Title>
-                            <Subtitle style={styles.groupLocationLabel}>Berlin, Germany</Subtitle>
-                        </Col>
-                        <Col xs={3} style={styles.colStyle}>
-                            <Button
-                                onClick={this.joinGroup}
-                                style={styles.joinButtonStyle}>
-                                Join
-                            </Button>
-                        </Col>
-                    </Row>
-                </Grid>
+
             </div>
         )
     }
@@ -75,18 +82,13 @@ class Group extends Component {
 const styles = {
     groupNameLabel: {
         textAlign: 'left',
-        marginTop: 30
+        marginTop: 30,
+        color: '#ffffff'
     },
     groupImageStyle: {
         borderRadius: 10
     },
     joinButtonStyle: {
-        marginTop: 30,
-        borderRadius: 3,
-        borderWidth: 0,
-        backgroundColor: '#7B40FF',
-        width: 90,
-        color: '#ffffff',
         float: 'right'
     },
     gridStyle: {

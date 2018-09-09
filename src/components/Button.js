@@ -5,20 +5,24 @@ import { colors, width } from '../styles.js'
 
 const StyledButton = styled.button`
   text-decoration: none;
-  color: ${colors.subtitle};
-  background-color: ${colors.purple} !important;
+  color: ${colors.white};
+  background-color: ${({ disabled }) => disabled ? colors.light : colors.purple }
+  border: none;
+  border-radius: 3px;
   margin: 0;
   padding: 0;
+  margin-top: 30px;
   font-weight: 300;
   outline: none !important;
   transition: all 0.1s ease;
   -webkit-transition: all 0.1s ease;
   -moz-transition: all 0.1s ease;
   -o-transition: all 0.1s ease;
+  width: 90px;
   height: 55px;
 
   &:hover {
-    background-color: ${colors.purpler} !important;
+    background-color: ${({ disabled }) => disabled ? colors.light : colors.purpler }
   }
 
   &:active {
