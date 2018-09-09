@@ -2,7 +2,6 @@ pragma solidity 0.4.24;
 
 import "./MeetupGroup.sol";
 import "./zeppelin/ownership/Ownable.sol";
-import "./radek1st/EnsSubdomainFactory.sol";
 
 contract MeetupGroupFactory is Ownable {
 
@@ -39,7 +38,7 @@ contract MeetupGroupFactory is Ownable {
         string _category,
         string _description,
         bytes _logo
-    ) public {
+    ) public returns(address) {
         require(bytes(_name).length > 0, "Name has to exist");
         require(bytes(_country).length > 0, "Country has to exist");
         require(bytes(_region).length > 0, "Region has to exist");
@@ -56,5 +55,6 @@ contract MeetupGroupFactory is Ownable {
         groups.push(group);
 
         emit CreateGroup(group, msg.sender, _name, _description, _country, _region, _category);
+        return (group);
     }
 }

@@ -2,7 +2,10 @@ import React, { Component } from 'react'
 import { Route, Switch } from 'react-router'
 import HomeContainer from './layouts/home/HomeContainer'
 import axios from 'axios';
-//import config from '../config';
+import config from '../config';
+import {ApolloProvider} from 'react-apollo';
+
+
 
 import DiscoverSearchContainer from './components/DiscoverSearch/DiscoverSearchContainer'
 import GroupContainer from './components/Group/GroupContainer'
@@ -16,6 +19,7 @@ import './css/open-sans.css'
 import './css/pure-min.css'
 import './App.css'
 
+
 class App extends Component {
 
   constructor(props) {
@@ -28,7 +32,6 @@ class App extends Component {
 
 
   componentDidMount() {
-    /*
     var pinata_api_key = config.pinata_api_key;
     var pinata_secret_api_key = config.pinata_secret_api_key;
 
@@ -47,7 +50,6 @@ class App extends Component {
         //handle error here
         console.log("Error: " + error)
       });
-      */
   }
 
   render() {
