@@ -44,9 +44,9 @@ dataSources:
       file: ./build/contracts/Conference.json
       _typePrefix: Ctr
     eventHandlers:
-    - event: JoinGroup(address, address, uint)
+    - event: JoinGroup(address,address,uint)
       handler: handleJoinGroup
-    - event: CreateEvent(address, address, address, string, string, uint, byte, uint, uint)
+    - event: CreateEvent(address,address,address,string,string,uint,byte,uint,uint)
       handler: handleCreateEvent
     file: ./mappings/group.ts
 - kind: ethereum/contract
@@ -66,26 +66,6 @@ dataSources:
     - name: Conference
       file: ./build/contracts/Conference.json
     eventHandlers:
-    - event: RegisterEvent(address, uint, uint, bool)
+    - event: RegisterEvent(address,uint,uint,bool)
       handler: handleAttendEvent
     file: ./mappings/event.ts
-- kind: ethereum/contract
-  name: EnsSubdomainFactory
-  source:
-    address: "c0e48F89ed35b8413441f0921D819da0a91D8913"
-    abi: EnsSubdomainFactory
-  mapping:
-    kind: ethereum/events
-    apiVersion: 0.0.1
-    language: wasm/assemblyscript
-    entities:
-    - Group
-    - Event
-    - User
-    abis:
-    - name: Conference
-      file: ./build/contracts/EnsSubdomainFactory.json
-    eventHandlers:
-    - event: SubdomainCreated(address, address, address, string, string)
-      handler: handleAddSubdomain
-    file: ./mappings/ens-subdomain-factory.ts
