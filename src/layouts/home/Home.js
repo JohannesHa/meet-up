@@ -1,13 +1,14 @@
 import React, { Component } from 'react'
-import logo from '../../logo.png'
 import GroupContainer from '../group/GroupContainer';
+import JoinedGroupsListContainer from '../joinedGroupsList/JoinedGroupsListContainer';
 
 import Nav from '../../components/Nav.js'
 import Header from '../../components/Header.js'
 import Subheader from '../../components/Subheader.js'
+import Title from '../../components/Title';
 
 class Home extends Component {
-  
+
   componentDidMount() {
     const userHasSeenIntro = localStorage.getItem("userHasSeenIntro");
     if (!userHasSeenIntro) {
@@ -23,11 +24,24 @@ class Home extends Component {
             <Header>Discover</Header>
             <Subheader>Find groups that interest you</Subheader>
             <GroupContainer />
+            <div style={styles.clearfix}></div>
+            <div style={styles.joinedGroupsWrapper}>
+              <Title>Your joined groups</Title>
+              <JoinedGroupsListContainer />
+            </div>
           </div>
         </main>
-        <Nav current={0}/>
+        <Nav current={0} />
       </div>
     )
+  }
+}
+
+const styles = {
+  clearfix: {
+    height: 60,
+  },
+  joinedGroupsWrapper: {
   }
 }
 
