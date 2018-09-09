@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import GroupContainer from '../group/GroupContainer';
+import GroupSelectContainer from '../../components/GroupSelect/GroupSelectContainer';
 import JoinedGroupsListContainer from '../joinedGroupsList/JoinedGroupsListContainer';
 
 import Nav from '../../components/Nav.js'
@@ -23,7 +23,7 @@ class Home extends Component {
           <div>
             <Header>Discover</Header>
             <Subheader>Find groups that interest you</Subheader>
-            <GroupContainer />
+            <GroupSelectContainer />
             <div style={styles.clearfix}></div>
             <div style={styles.joinedGroupsWrapper}>
               <Title>Your joined groups</Title>

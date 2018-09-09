@@ -5,7 +5,7 @@ import axios from 'axios';
 //import config from '../config';
 
 import DiscoverSearchContainer from './components/DiscoverSearch/DiscoverSearchContainer'
-import GroupContainer from './components/Group/GroupContainer'
+import GroupDetailContainer from './layouts/groupDetail/GroupDetailContainer'
 import CreateGroupContainer from './layouts/createGroup/CreateGroupContainer'
 import ProfileContainer from './components/Profile/ProfileContainer';
 import IntroContainer from './layouts/intro/IntroContainer';
@@ -59,7 +59,7 @@ class App extends Component {
           <Route exact path="/search" component={DiscoverSearchContainer} />
           <Route exact path="/create" component={CreateGroupContainer} />
           <Route exact path="/profile" component={ProfileContainer} />
-          <Route path="/0x*" component={GroupContainer} />
+          <Route path="/0x*" component={GroupDetailContainer} />
           <Route component={HomeContainer} />
         </Switch>
         <ul>
