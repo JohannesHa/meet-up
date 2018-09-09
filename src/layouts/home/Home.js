@@ -7,6 +7,14 @@ import Header from '../../components/Header.js'
 import Subheader from '../../components/Subheader.js'
 
 class Home extends Component {
+  
+  componentDidMount() {
+    const userHasSeenIntro = localStorage.getItem("userHasSeenIntro");
+    if (!userHasSeenIntro) {
+      this.props.history.push('/intro');
+    }
+  }
+
   render() {
     return (
       <div>
