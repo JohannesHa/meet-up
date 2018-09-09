@@ -1,15 +1,24 @@
 import React, { Component } from 'react'
-import { Route } from 'react-router'
+import { Route, Switch } from 'react-router'
 import HomeContainer from './layouts/home/HomeContainer'
 import axios from 'axios';
 import config from '../config';
+import {ApolloProvider} from 'react-apollo';
 
+
+
+import DiscoverSearchContainer from './components/DiscoverSearch/DiscoverSearchContainer'
+import GroupContainer from './components/Group/GroupContainer'
+import CreateGroupContainer from './layouts/createGroup/CreateGroupContainer'
+import ProfileContainer from './components/Profile/ProfileContainer';
+import IntroContainer from './layouts/intro/IntroContainer';
 
 // Styles
 import './css/roboto.css'
 import './css/open-sans.css'
 import './css/pure-min.css'
 import './App.css'
+
 
 class App extends Component {
 
@@ -46,7 +55,19 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Route exact path="/" component={HomeContainer} />
+        <Switch>
+          <Route exact path="/" component={HomeContainer} />
+          <Route exact path="/intro" component={IntroContainer} />
+          <Route exact path="/search" component={DiscoverSearchContainer} />
+          <Route exact path="/create" component={CreateGroupContainer} />
+          <Route exact path="/profile" component={ProfileContainer} />
+          <Route path="/0x*" component={GroupContainer} />
+          <Route component={HomeContainer} />
+        </Switch>
+        <ul>
+          {console.log("tested Axios:" + this.state.testingAxios)}
+          {this.state.testingAxios.map(testingAxios => <li>{testingAxios.message}</li>)}
+        </ul>
       </div>
     );
   }

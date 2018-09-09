@@ -7,7 +7,7 @@ import { colors } from '../styles.js'
 import Subtitle from './Subtitle.js'
 
 const StyledLoadingContainer = styled.main`
-  background-color: ${colors.white};
+  background-color: ${colors.dark};
   position: absolute;
   margin: auto;
   top:0;
@@ -112,11 +112,11 @@ class LoadingContainer extends Component {
         <StyledLoadingContainer className="container loading-screen">
           <div className="pure-g">
             <div className="pure-u-1-1">
-              <StyledLoadingIndicatorContainer color={colors.metamask}>
-                <div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
+              <StyledLoadingIndicatorContainer color={colors.purple}>
+                <div className="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
               </StyledLoadingIndicatorContainer>
               <Subtitle>
-                Waiting for MetaMask...
+                Waiting for Web3...
               </Subtitle>
             </div>
           </div>
@@ -134,8 +134,8 @@ class LoadingContainer extends Component {
       <StyledLoadingContainer className="container loading-screen">
         <div className="pure-g">
           <div className="pure-u-1-1">
-            <StyledLoadingIndicatorContainer color={colors.black}>
-              <div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
+            <StyledLoadingIndicatorContainer color={colors.purple}>
+              <div className="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
             </StyledLoadingIndicatorContainer>
             <Subtitle>
               Loading dapp...

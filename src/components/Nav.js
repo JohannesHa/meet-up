@@ -10,9 +10,9 @@ const StyledNav = styled(Row)`
   margin: 0;
   width: 100%;
   height: auto;
-  position: absolute;
+  position: fixed;
   bottom: 0;
-  padding: 20px 0;
+  padding: 20px;
 `;
 
 const StyledCol = styled(Col)`
@@ -22,7 +22,7 @@ const StyledCol = styled(Col)`
 const StyledButton = styled(Button)`
   width: 100%;
   background: transparent;
-  color: ${colors.white}
+  color: ${({ current }) => current ? colors.white : colors.light};
   text-shadow: none;
   transition: all 0.1s ease;
   -webkit-transition: all 0.1s ease;
@@ -39,7 +39,7 @@ const StyledButton = styled(Button)`
 
   &:active {
     background-color: transparent !important;
-    color: ${colors.status} !important;
+    color: ${colors.white} !important;
   }
 
   &:focus {
@@ -48,25 +48,25 @@ const StyledButton = styled(Button)`
   }
 `
 
-const Nav = ({ active, ...props }) => (
+const Nav = ({ current, ...props }) => (
   <StyledNav {...props}>
     <StyledCol xs={3}>
-      <StyledButton>
-        <Glyphicon glyph="globe" />
+      <StyledButton href="/" current={current === 0}>
+        <Glyphicon glyph="home" />
       </StyledButton>
     </StyledCol>
     <StyledCol xs={3}>
-      <StyledButton>
+      <StyledButton href="/search" current={current === 1}>
         <Glyphicon glyph="search" />
       </StyledButton>
     </StyledCol>
     <StyledCol xs={3}>
-      <StyledButton>
+      <StyledButton href="/create" current={current === 2}>
         <Glyphicon glyph="plus" />
       </StyledButton>
     </StyledCol>
     <StyledCol xs={3}>
-      <StyledButton>
+      <StyledButton href="/profile" current={current === 3}>
         <Glyphicon glyph="user" />
       </StyledButton>
     </StyledCol>
@@ -74,7 +74,7 @@ const Nav = ({ active, ...props }) => (
 );
 
 Nav.propTypes = {
-  active: PropTypes.number,
+  current: PropTypes.bool,
 };
 
 export default Nav;

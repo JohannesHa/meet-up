@@ -19,10 +19,10 @@ import "../zeppelin/ownership/Ownable.sol";
  * so anyone can create subdomains like "radek.startonchain.eth".
  */
 contract EnsSubdomainFactory is Ownable{
-	EnsRegistry public registry;
-	EnsResolver public resolver;
-	bool public locked;
-	bytes32 ethNamehash = 0x7cb6c9ce54d6fba5d4f3008113677a8dbd765729ceed52dda637e002895280df;
+    EnsRegistry public registry;
+    EnsResolver public resolver;
+    bool public locked;
+    bytes32 ethNamehash = 0x7cb6c9ce54d6fba5d4f3008113677a8dbd765729ceed52dda637e002895280df;
 
 	event SubdomainCreated(address target, address indexed creator, address indexed owner, string subdomain, string domain);
 	event OwnershipTransferred(address indexed previousOwner, address indexed newOwner);
@@ -30,11 +30,12 @@ contract EnsSubdomainFactory is Ownable{
 	event ResolverUpdated(address indexed previousResolver, address indexed newResolver);
 	event DomainTransfersLocked();
 
-	constructor(EnsRegistry _registry, EnsResolver _resolver) public {
-		registry = _registry;
-		resolver = _resolver;
-		locked = false;
-	}
+
+    constructor(EnsRegistry _registry, EnsResolver _resolver) public {
+        registry = _registry;
+        resolver = _resolver;
+        locked = false;
+    }
 
 	/**
 	 * @dev Allows to create a subdomain (e.g. "radek.startonchain.eth"), 
@@ -68,54 +69,44 @@ contract EnsSubdomainFactory is Ownable{
 		emit SubdomainCreated(_target, msg.sender, _owner, _subdomain, _domain);
 	}
 
-	/**
-	 * @dev Returns the owner of a domain (e.g. "startonchain.eth"),
-	 * @param _domain - domain name e.g. "startonchain"
-	 */
-	function domainOwner(string _domain) public view returns(address) {
-		bytes32 namehash = keccak256(abi.encodePacked(ethNamehash, keccak256(abi.encodePacked(_domain))));
-		return registry.owner(namehash);
-	}
-	
-	/**
-	 * @dev Return the owner of a subdomain (e.g. "radek.startonchain.eth"), 
-	 * @param _subdomain - sub domain name only e.g. "radek"
-	 * @param _domain - parent domain name e.g. "startonchain"
-	 */
-	function subdomainOwner(string _subdomain, string _domain) public view returns(address) {
-		bytes32 domainNamehash = keccak256(abi.encodePacked(ethNamehash, keccak256(abi.encodePacked(_domain))));
-		bytes32 subdomainNamehash = keccak256(abi.encodePacked(domainNamehash, keccak256(abi.encodePacked(_subdomain))));
-		return registry.owner(subdomainNamehash);
-	}
+    /**
+        * @dev Returns the owner of a domain (e.g. "startonchain.eth"),
+        * @param _domain - domain name e.g. "startonchain"
+        */
+    function domainOwner(string _domain) public view returns(address) {
+        bytes32 namehash = keccak256(abi.encodePacked(ethNamehash, keccak256(abi.encodePacked(_domain))));
+        return registry.owner(namehash);
+    }
 
-	/**
-	 * @dev The contract owner can take away the ownership of any domain owned by this contract.
-	 * @param _node - namehash of the domain
-	 * @param _owner - new owner for the domain
-	 */
-	function transferDomainOwnership(bytes32 _node, address _owner) public onlyOwner {
-		require(!locked);
-		registry.setOwner(_node, _owner);
-	}
+    /**
+        * @dev Return the owner of a subdomain (e.g. "radek.startonchain.eth"), 
+        * @param _subdomain - sub domain name only e.g. "radek"
+        * @param _domain - parent domain name e.g. "startonchain"
+        */
+    function subdomainOwner(string _subdomain, string _domain) public view returns(address) {
+        bytes32 domainNamehash = keccak256(abi.encodePacked(ethNamehash, keccak256(abi.encodePacked(_domain))));
+        bytes32 subdomainNamehash = keccak256(abi.encodePacked(domainNamehash, keccak256(abi.encodePacked(_subdomain))));
+        return registry.owner(subdomainNamehash);
+    }
 
-	/**
-	 * @dev The contract owner can lock and prevent any future domain ownership transfers.
-	 */
-	function lockDomainOwnershipTransfers() public onlyOwner {
-		require(!locked);
-		locked = true;
-		emit DomainTransfersLocked();
-	}
+    /**
+        * @dev The contract owner can take away the ownership of any domain owned by this contract.
+        * @param _node - namehash of the domain
+        * @param _owner - new owner for the domain
+        */
+    function transferDomainOwnership(bytes32 _node, address _owner) public onlyOwner {
+        require(!locked);
+        registry.setOwner(_node, _owner);
+    }
 
-	/**
-	 * @dev Allows to update to new ENS registry.
-	 * @param _registry The address of new ENS registry to use.
-	 */
-	function updateRegistry(EnsRegistry _registry) public onlyOwner {
-		require(registry != _registry, "new registry should be different from old");
-		emit RegistryUpdated(registry, _registry);
-		registry = _registry;
-	}
+    /**
+        * @dev The contract owner can lock and prevent any future domain ownership transfers.
+        */
+    function lockDomainOwnershipTransfers() public onlyOwner {
+        require(!locked);
+        locked = true;
+        emit DomainTransfersLocked();
+    }
 
 	/**
 	 * @dev Allows to update to new ENS resolver.
@@ -126,4 +117,4 @@ contract EnsSubdomainFactory is Ownable{
 		emit ResolverUpdated(resolver, _resolver);
 		resolver = _resolver;
 	}
-}
+

@@ -3,13 +3,14 @@
 body,
 .pure-g [class*=pure-u] {
   font-family: 'Open Sans', sans-serif;
+  background-color: #171439;
 }
 
 .header {
   text-align: center;
 }
 
-h1, h2, h3 {
+h1, h2, h3, button, input, select {
   font-family: 'Roboto', 'Arial Narrow', sans-serif;
   font-weight: 300;
 }
@@ -108,4 +109,38 @@ ul li:not(:last-child) {
   color: darkgreen;
   background: darkseagreen;
   border: 1px solid darkgreen;
+}
+
+.descriptionDiv {
+  display:flex;
+  flex-direction:row;
+}
+
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+
+.dropdown-country {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.qr-code-card {
+  background-color: #ffffff;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 80%;
+  width: 190px;
+  height: 190px;
+  border-radius: 15px;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  text-align: center;
+}
+
+.qrcode {
 }

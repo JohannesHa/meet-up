@@ -1,17 +1,24 @@
 /**
  * Created by will on 08/09/18.
  */
-import React from 'react';
 import Group from './Group';
+import { drizzleConnect } from 'drizzle-react'
 
-const GroupContainer = () => {
-  return <Group
-    name="Berlin Blockchain"
-    memberCount="100"
-    country="Germany"
-    region="Berlin"
-    category="Blockchain"
-    isAdmin={true}
-    isMember={true}
-  />
+const mapStateToProps = state => {
+  return {
+    accounts: state.accounts,
+    MeetupGroupFactory: state.contracts.MeetupGroupFactory,
+    drizzleStatus: state.drizzleStatus,
+    name: state.name,
+    memberCount: state.memberCount,
+    country: state.country,
+    region: state.region,
+    category: state.category,
+    isAdmin: state.isAdmin,
+    isMember: state.isMember,
+  }
 }
+
+const GroupContainer = drizzleConnect(Group, mapStateToProps);
+
+export default GroupContainer;
