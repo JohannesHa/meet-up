@@ -6,6 +6,9 @@ import LocationSearch from '../LocationSearch/LocationSearch';
 import CategorySearch from '../CategorySearch/CategorySearch';
 
 import Nav from '../../components/Nav.js'
+import Button from '../../components/Button.js'
+import Header from '../Header.js'
+import Subheader from '../Subheader.js'
 
 class DiscoverSearchContainer extends Component {
   constructor(props) {
@@ -90,7 +93,9 @@ class DiscoverSearchContainer extends Component {
   render() {
     return (
       <div>
-        <div>
+        <main className="container">
+          <Header>Search</Header>
+          <Subheader>Enter your region to start</Subheader>
           {!this.state.onCategoryPage ?
             <LocationSearch onSelectCountry={this.handleSelectCountry}
               onSelectRegion={this.handleSelectRegion}
@@ -98,38 +103,22 @@ class DiscoverSearchContainer extends Component {
               region={this.state.region} /> :
             <CategorySearch onSelectCategory={this.handleSelectCategory} />
           }
-        </div>
 
 
         {!this.state.onCategoryPage ?
-          <div class="center">
-            <button style={styles.buttonStyle} disabled={false} onClick={this.selectCategoryPage}>Next</button>
+          <div>
+            <Button disabled={false} onClick={this.selectCategoryPage}>Next</Button>
           </div> :
-          <div class="center">
-            <button style={styles.buttonStyle} onClick={this.searchGroups}>Search</button>
+          <div>
+            <Button onClick={this.searchGroups}>Search</Button>
           </div>
         }
-
+        </main>
         <Nav current={1} />
       </div>
     )
   }
 }
-
-const styles = {
-  buttonStyle: {
-    marginTop: 30,
-    borderRadius: 12,
-    borderWidth: 0,
-    backgroundColor: '#7B40FF',
-    width: '100%',
-    height: 40,
-    color: '#ffffff',
-    float: 'right',
-    justifyContent: 'center',
-    alignItems: 'center'
-  }
-};
 
 
 export default DiscoverSearchContainer;

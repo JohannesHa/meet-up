@@ -3,19 +3,20 @@
  */
 import React from 'react';
 import PropTypes from 'prop-types';
+import styled from 'styled-components'
 import { CountryDropdown, RegionDropdown } from 'react-country-region-selector';
 import backgroundCoolImage from '../../assets/backgroundCoolImage.png';
 
 import Title from '../Title.js'
-import Header from '../Header.js'
-import Subheader from '../Subheader.js'
+
+const StyledCountryDropdown = styled(CountryDropdown)`
+  color: white !important;
+`
 
 const LocationSearch = ({ onSelectCountry, onSelectRegion, country, region }) => {
   return (
     <main className="container">
-      <Header>Search</Header>
-      <Subheader>Enter your region to start</Subheader>
-      <CountryDropdown
+      <StyledCountryDropdown
         classes="dropdown-country"
         value={country}
         onChange={onSelectCountry} />
