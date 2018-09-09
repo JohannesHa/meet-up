@@ -4,6 +4,8 @@ import Header from '../../components/Header.js'
 import Subheader from '../../components/Subheader.js'
 import Nav from '../../components/Nav.js'
 import Button from '../../components/Button.js'
+import PropTypes from 'prop-types';
+import web3 from 'web3';
 
 import styled from 'styled-components'
 import { colors } from '../../styles.js'
@@ -38,6 +40,8 @@ class CreateGroup extends Component {
         this.handleCreateMeetup = this.handleCreateMeetup.bind(this);
         this.handleLocationChange = this.handleLocationChange.bind(this);
         this.handleSubdomainChange = this.handleSubdomainChange.bind(this);
+
+        this.contracts = context.drizzle.contracts;
 
         this.state = {
             groupName: '',
@@ -95,9 +99,14 @@ class CreateGroup extends Component {
         this.setState({ groupSubdomain: e.target.value });
     }
 
+
+
     handleCreateMeetup(e) {
         e.preventDefault();
         // Link backend
+        this.contracts.MeetupGroupFactory.methods.createGroup(this.state.groupName, this.state.groupLocation, 'Berlin', 'Blockchain',
+          this.state.groupDescription, web3.utils.asciiToHex("asdasd")).call(
+           {from: this.props.accounts[0]}).then()
     }
 
     render() {
@@ -168,6 +177,11 @@ class CreateGroup extends Component {
     }
 }
 
+CreateGroup.contextTypes = {
+  drizzle: PropTypes.object
+}
+
+
 const styles = {
     clearfix: {
         height: '3rem'
@@ -177,4 +191,13 @@ const styles = {
     }
 };
 
-export default CreateGroup
+function createBytes() {
+  var url = "Hello World";
+  var data = [];
+  for (var i = 0; i < url.length; i++) {
+    data.push(url.charCodeAt(i));
+  }
+  return data;
+}
+
+export default CreateGroup;
