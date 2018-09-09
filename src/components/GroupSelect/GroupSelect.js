@@ -4,11 +4,11 @@ import weirdPeopleLookingOnAScreenImage from '../../assets/weirdPeopleLookingOnA
 import codingMeetupImage from '../../assets/codingMeetup.jpg';
 import peopleChillingImage from '../../assets/peopleChilling.jpg';
 
-import Button from '../../components/Button.js';
-import Title from '../../components/Title.js';
-import Subtitle from '../../components/Subtitle.js';
+import Button from '../../components/Button';
+import Title from '../../components/Title';
+import Subtitle from '../../components/Subtitle';
 
-class Group extends Component {
+class GroupSelect extends Component {
     constructor(props, context) {
         super(props, context);
 
@@ -108,4 +108,4 @@ const styles = {
 
 
 
-export default Group
+export default GroupSelect

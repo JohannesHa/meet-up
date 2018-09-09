@@ -1,4 +1,4 @@
-import Group from './Group'
+import GroupSelect from './GroupSelect'
 import { drizzleConnect } from 'drizzle-react'
 
 // May still need this even with data function to refresh component on updates for this contract.
@@ -11,6 +11,6 @@ const mapStateToProps = state => {
   }
 }
 
-const GroupContainer = drizzleConnect(Group, mapStateToProps);
+const GroupSelectContainer = drizzleConnect(GroupSelect, mapStateToProps);
 
-export default GroupContainer
+export default GroupSelectContainer
