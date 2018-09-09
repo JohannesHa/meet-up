@@ -7,7 +7,7 @@ contract Conference is Destructible, GroupAdmin {
     // string public name;
     uint256 public deposit;
     uint public limitOfParticipants;
-    uint public registered;
+    uint public attendeeCount;
     uint public attended;
     bool public ended;
     bool public cancelled;
@@ -27,7 +27,7 @@ contract Conference is Destructible, GroupAdmin {
         bool paid;
     }
 
-    event RegisterEvent(address addr, uint registered, uint limitOfParticipants, bool isFull);
+    event RegisterEvent(address id, address userId, uint attendeeCount, bool isFull);
     event AttendEvent(address addr);
     event PaybackEvent(uint256 _payout);
     event WithdrawEvent(address addr, uint256 _payout);
@@ -42,7 +42,7 @@ contract Conference is Destructible, GroupAdmin {
     }
 
     modifier noOneRegistered {
-        require(registered == 0);
+        require(attendeeCount == 0);
         _;
     }
 
@@ -121,7 +121,7 @@ contract Conference is Destructible, GroupAdmin {
     function register() external payable onlyActive{
         registerInternal();
         bool full = isFull();
-        emit RegisterEvent(msg.sender, registered, limitOfParticipants, full);
+        emit RegisterEvent(this, msg.sender, attendeeCount, full);
     }
 
     /**
@@ -129,11 +129,11 @@ contract Conference is Destructible, GroupAdmin {
      */
     function registerInternal() internal {
         require(msg.value == deposit);
-        require(registered < limitOfParticipants);
+        require(attendeeCount < limitOfParticipants);
         require(!isRegistered(msg.sender));
 
-        registered++;
-        participantsIndex[registered] = msg.sender;
+        attendeeCount++;
+        participantsIndex[attendeeCount] = msg.sender;
         participants[msg.sender] = Participant(msg.sender, false, false);
     }
 
@@ -264,7 +264,7 @@ contract Conference is Destructible, GroupAdmin {
     }
 
     function isFull() public view returns(bool) {
-        if (registered < limitOfParticipants) {
+        if (attendeeCount < limitOfParticipants) {
             return false;
         } else {
             return true;

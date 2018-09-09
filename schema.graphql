@@ -1,6 +1,7 @@
 scalar Date
 
 type Group @entity {
+    address: Bytes!
     name: String!
     ens: String!
     events: [Event!] @derivedFrom(field: "group")

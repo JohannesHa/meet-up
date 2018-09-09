@@ -5,23 +5,28 @@ export function handleCreateGroup(event: CreateGroup): void {
     let groupId = event.params.id.toHex();
     let userId = event.params.userId.toHex();
 
+    let groupContract = CtrMeetupGroup.bind(event.params.id, event.blockHash);
+
     let group = new Entity();
     group.setString('id', groupId);
     group.setString('admin', userId);
     group.setString('name', event.params.name);
     group.setString('description', event.params.description);
-    group.setString('ens', event.params.ens);
     group.setString('category', event.params.category);
-    // group.setBytes('logo', groupContract.);
+    group.setBytes('logo', groupContract.logo());
     group.setString('country', event.params.country);
     group.setString('region', event.params.region);
-    // group.setBigInt('memberCount', groupContract.memberCount());
+    group.setU256('memberCount', groupContract.memberCount());
+
+    group.setAddress('address', event.params.id as Address);
 
 
-
+    let user = new Entity();
+    user.setString('id', userId);
+    user.setAddress('address', userId as Address);
 
     store.set('Group', groupId, group);
-    // store.set('User', userId, user);
+    store.set('User', userId, user);
 
 }
 
