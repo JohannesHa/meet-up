@@ -11,11 +11,11 @@ import Subheader from '../Subheader'
 class Group extends Component {
 
   render() {
-    let ens = this.props.location.pathname.substring(1);
+    let address = this.props.location.pathname.substring(1);
     return (
       <main className="container">
         <div>
-          <Header>{ens}</Header>
+          <Header>{address}</Header>
           <Subheader>This group doesn't exist</Subheader>
         </div>
       </main>

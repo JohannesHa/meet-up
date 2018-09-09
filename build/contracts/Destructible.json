@@ -13,7 +13,8 @@
       ],
       "payable": false,
       "stateMutability": "view",
-      "type": "function"
+      "type": "function",
+      "signature": "0x8da5cb5b"
     },
     {
       "constant": false,
@@ -27,13 +28,15 @@
       "outputs": [],
       "payable": false,
       "stateMutability": "nonpayable",
-      "type": "function"
+      "type": "function",
+      "signature": "0xf2fde38b"
     },
     {
       "inputs": [],
       "payable": true,
       "stateMutability": "payable",
-      "type": "constructor"
+      "type": "constructor",
+      "signature": "constructor"
     },
     {
       "anonymous": false,
@@ -45,7 +48,8 @@
         }
       ],
       "name": "DestroyEvent",
-      "type": "event"
+      "type": "event",
+      "signature": "0x5158809353c1d603d8c77564e8556eea254ce047d03c767920eeb497481c1e4f"
     },
     {
       "anonymous": false,
@@ -62,7 +66,8 @@
         }
       ],
       "name": "OwnershipTransferred",
-      "type": "event"
+      "type": "event",
+      "signature": "0x8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e0"
     },
     {
       "constant": false,
@@ -71,7 +76,8 @@
       "outputs": [],
       "payable": false,
       "stateMutability": "nonpayable",
-      "type": "function"
+      "type": "function",
+      "signature": "0x83197ef0"
     },
     {
       "constant": false,
@@ -85,17 +91,18 @@
       "outputs": [],
       "payable": false,
       "stateMutability": "nonpayable",
-      "type": "function"
+      "type": "function",
+      "signature": "0xf5074f41"
     }
   ],
-  "bytecode": "0x6080604052336000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff16021790555061040a806100536000396000f300608060405260043610610062576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff16806383197ef0146100675780638da5cb5b1461007e578063f2fde38b146100d5578063f5074f4114610118575b600080fd5b34801561007357600080fd5b5061007c61015b565b005b34801561008a57600080fd5b506100936101f0565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b3480156100e157600080fd5b50610116600480360381019080803573ffffffffffffffffffffffffffffffffffffffff169060200190929190505050610215565b005b34801561012457600080fd5b50610159600480360381019080803573ffffffffffffffffffffffffffffffffffffffff16906020019092919050505061036a565b005b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff161415156101b657600080fd5b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16ff5b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1681565b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff1614151561027057600080fd5b600073ffffffffffffffffffffffffffffffffffffffff168173ffffffffffffffffffffffffffffffffffffffff16141515156102ac57600080fd5b8073ffffffffffffffffffffffffffffffffffffffff166000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff167f8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e060405160405180910390a3806000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff16021790555050565b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff161415156103c557600080fd5b8073ffffffffffffffffffffffffffffffffffffffff16ff00a165627a7a723058209bd8e06a253c9180d2b821eb06a78814cbb586dab102c76d8b3b90f5a229ef120029",
-  "deployedBytecode": "0x608060405260043610610062576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff16806383197ef0146100675780638da5cb5b1461007e578063f2fde38b146100d5578063f5074f4114610118575b600080fd5b34801561007357600080fd5b5061007c61015b565b005b34801561008a57600080fd5b506100936101f0565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b3480156100e157600080fd5b50610116600480360381019080803573ffffffffffffffffffffffffffffffffffffffff169060200190929190505050610215565b005b34801561012457600080fd5b50610159600480360381019080803573ffffffffffffffffffffffffffffffffffffffff16906020019092919050505061036a565b005b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff161415156101b657600080fd5b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16ff5b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1681565b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff1614151561027057600080fd5b600073ffffffffffffffffffffffffffffffffffffffff168173ffffffffffffffffffffffffffffffffffffffff16141515156102ac57600080fd5b8073ffffffffffffffffffffffffffffffffffffffff166000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff167f8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e060405160405180910390a3806000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff16021790555050565b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff161415156103c557600080fd5b8073ffffffffffffffffffffffffffffffffffffffff16ff00a165627a7a723058209bd8e06a253c9180d2b821eb06a78814cbb586dab102c76d8b3b90f5a229ef120029",
+  "bytecode": "0x6080604052336000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff16021790555061040a806100536000396000f300608060405260043610610062576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff16806383197ef0146100675780638da5cb5b1461007e578063f2fde38b146100d5578063f5074f4114610118575b600080fd5b34801561007357600080fd5b5061007c61015b565b005b34801561008a57600080fd5b506100936101f0565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b3480156100e157600080fd5b50610116600480360381019080803573ffffffffffffffffffffffffffffffffffffffff169060200190929190505050610215565b005b34801561012457600080fd5b50610159600480360381019080803573ffffffffffffffffffffffffffffffffffffffff16906020019092919050505061036a565b005b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff161415156101b657600080fd5b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16ff5b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1681565b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff1614151561027057600080fd5b600073ffffffffffffffffffffffffffffffffffffffff168173ffffffffffffffffffffffffffffffffffffffff16141515156102ac57600080fd5b8073ffffffffffffffffffffffffffffffffffffffff166000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff167f8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e060405160405180910390a3806000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff16021790555050565b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff161415156103c557600080fd5b8073ffffffffffffffffffffffffffffffffffffffff16ff00a165627a7a72305820f3b61293eb92d49d42776f7cd50496bc44f1fbe08112762bfcd95943fed0e6b00029",
+  "deployedBytecode": "0x608060405260043610610062576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff16806383197ef0146100675780638da5cb5b1461007e578063f2fde38b146100d5578063f5074f4114610118575b600080fd5b34801561007357600080fd5b5061007c61015b565b005b34801561008a57600080fd5b506100936101f0565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b3480156100e157600080fd5b50610116600480360381019080803573ffffffffffffffffffffffffffffffffffffffff169060200190929190505050610215565b005b34801561012457600080fd5b50610159600480360381019080803573ffffffffffffffffffffffffffffffffffffffff16906020019092919050505061036a565b005b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff161415156101b657600080fd5b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16ff5b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1681565b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff1614151561027057600080fd5b600073ffffffffffffffffffffffffffffffffffffffff168173ffffffffffffffffffffffffffffffffffffffff16141515156102ac57600080fd5b8073ffffffffffffffffffffffffffffffffffffffff166000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff167f8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e060405160405180910390a3806000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff16021790555050565b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff161415156103c557600080fd5b8073ffffffffffffffffffffffffffffffffffffffff16ff00a165627a7a72305820f3b61293eb92d49d42776f7cd50496bc44f1fbe08112762bfcd95943fed0e6b00029",
   "sourceMap": "195:461:10:-;;;518:10:11;510:5;;:18;;;;;;;;;;;;;;;;;;195:461:10;;;;;;",
   "deployedSourceMap": "195:461:10:-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;408:105;;8:9:-1;5:2;;;30:1;27;20:12;5:2;408:105:10;;;;;;239:20:11;;8:9:-1;5:2;;;30:1;27;20:12;5:2;239:20:11;;;;;;;;;;;;;;;;;;;;;;;;;;;868:188;;8:9:-1;5:2;;;30:1;27;20:12;5:2;868:188:11;;;;;;;;;;;;;;;;;;;;;;;;;;;;519:135:10;;8:9:-1;5:2;;;30:1;27;20:12;5:2;519:135:10;;;;;;;;;;;;;;;;;;;;;;;;;;;;408:105;675:5:11;;;;;;;;;;;661:19;;:10;:19;;;653:28;;;;;;;;467:5:10;;;;;;;;;;;454:19;;;239:20:11;;;;;;;;;;;;;:::o;868:188::-;675:5;;;;;;;;;;;661:19;;:10;:19;;;653:28;;;;;;;;968:1;948:22;;:8;:22;;;;940:31;;;;;;;;1014:8;986:37;;1007:5;;;;;;;;;;;986:37;;;;;;;;;;;;1041:8;1033:5;;:16;;;;;;;;;;;;;;;;;;868:188;:::o;519:135:10:-;675:5:11;;;;;;;;;;;661:19;;:10;:19;;;653:28;;;;;;;;603:10:10;590:24;;",
   "source": "pragma solidity 0.4.24;\n\nimport \"../ownership/Ownable.sol\";\n\n/**\n * @title Destructible\n * @dev Base contract that can be destroyed by owner. All funds in contract will be sent to the owner.\n */\ncontract Destructible is Ownable {\n\n    event DestroyEvent(address id);\n\n    constructor() public payable { }\n\n    /**\n    * @dev Transfers the current balance to the owner and terminates the contract.\n    */\n    function destroy() onlyOwner public {\n        selfdestruct(owner);\n        emit DestroyEvent(this);\n    }\n\n    function destroyAndSend(address _recipient) onlyOwner public {\n        selfdestruct(_recipient);\n        emit DestroyEvent(this);\n    }\n}\n",
-  "sourcePath": "/Users/dominikdnd/Desktop/ETHBerlin/meetup/meet-up/contracts/zeppelin/lifecycle/Destructible.sol",
+  "sourcePath": "/Users/jackleslie/Desktop/Hackathons/meet-up/contracts/zeppelin/lifecycle/Destructible.sol",
   "ast": {
-    "absolutePath": "/Users/dominikdnd/Desktop/ETHBerlin/meetup/meet-up/contracts/zeppelin/lifecycle/Destructible.sol",
+    "absolutePath": "/Users/jackleslie/Desktop/Hackathons/meet-up/contracts/zeppelin/lifecycle/Destructible.sol",
     "exportedSymbols": {
       "Destructible": [
         1654
@@ -115,7 +122,7 @@
         "src": "0:23:10"
       },
       {
-        "absolutePath": "/Users/dominikdnd/Desktop/ETHBerlin/meetup/meet-up/contracts/zeppelin/ownership/Ownable.sol",
+        "absolutePath": "/Users/jackleslie/Desktop/Hackathons/meet-up/contracts/zeppelin/ownership/Ownable.sol",
         "file": "../ownership/Ownable.sol",
         "id": 1613,
         "nodeType": "ImportDirective",
@@ -597,7 +604,7 @@
     "src": "0:657:10"
   },
   "legacyAST": {
-    "absolutePath": "/Users/dominikdnd/Desktop/ETHBerlin/meetup/meet-up/contracts/zeppelin/lifecycle/Destructible.sol",
+    "absolutePath": "/Users/jackleslie/Desktop/Hackathons/meet-up/contracts/zeppelin/lifecycle/Destructible.sol",
     "exportedSymbols": {
       "Destructible": [
         1654
@@ -617,7 +624,7 @@
         "src": "0:23:10"
       },
       {
-        "absolutePath": "/Users/dominikdnd/Desktop/ETHBerlin/meetup/meet-up/contracts/zeppelin/ownership/Ownable.sol",
+        "absolutePath": "/Users/jackleslie/Desktop/Hackathons/meet-up/contracts/zeppelin/ownership/Ownable.sol",
         "file": "../ownership/Ownable.sol",
         "id": 1613,
         "nodeType": "ImportDirective",
@@ -1114,8 +1121,14 @@
       "links": {},
       "address": "0x9867B2F97bf536AEd75f7eED9D0f62C1629022e2",
       "transactionHash": "0x11dcc7820f8bfa9fe2ca83bd50b95984c389eda49f873ab95d9268218bf00c55"
+    },
+    "1536478800667": {
+      "events": {},
+      "links": {},
+      "address": "0xe19169C7EBaCEE51CB94AA68bd79094eEDF86199",
+      "transactionHash": "0xa22c21e0c2809e299743ac0707c64ad70d5fb3f5d3defa14b23b90f3ed8fa46c"
     }
   },
-  "schemaVersion": "2.0.1",
-  "updatedAt": "2018-09-09T05:32:40.705Z"
+  "schemaVersion": "3.0.0-beta.0",
+  "updatedAt": "2018-09-09T07:48:50.996Z"
 }
