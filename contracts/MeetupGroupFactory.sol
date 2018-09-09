@@ -2,7 +2,6 @@ pragma solidity 0.4.24;
 
 import "./MeetupGroup.sol";
 import "./zeppelin/ownership/Ownable.sol";
-import "./radek1st/EnsSubdomainFactory.sol";
 
 contract MeetupGroupFactory is Ownable {
 
