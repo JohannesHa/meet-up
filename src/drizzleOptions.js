@@ -1,4 +1,4 @@
-import MeetupGroupFactory from './../build/contracts/MeetupGroupFactory.json'
+import MeetupGroupFactory from './../build/contracts/GroupFactory.json'
 
 const drizzleOptions = {
   web3: {

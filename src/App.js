@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { Route, Switch } from 'react-router'
 import HomeContainer from './layouts/home/HomeContainer'
 import axios from 'axios';
-import config from '../config';
+//import config from '../config';
 import {ApolloProvider} from 'react-apollo';
 
 
@@ -32,6 +32,7 @@ class App extends Component {
 
 
   componentDidMount() {
+    /*
     var pinata_api_key = config.pinata_api_key;
     var pinata_secret_api_key = config.pinata_secret_api_key;
 
@@ -49,7 +50,7 @@ class App extends Component {
       .catch(function (error) {
         //handle error here
         console.log("Error: " + error)
-      });
+      });*/
   }
 
   render() {
@@ -64,10 +65,10 @@ class App extends Component {
           <Route path="/0x*" component={GroupDetailContainer} />
           <Route component={HomeContainer} />
         </Switch>
-        <ul>
+        {/*<ul>
           {console.log("tested Axios:" + this.state.testingAxios)}
           {this.state.testingAxios.map(testingAxios => <li>{testingAxios.message}</li>)}
-        </ul>
+        </ul>*/}
       </div>
     );
   }
